@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/GSoC2015.html">
+        <link rel="shortcut icon" href="favicon.ico">
+        
+        <title>GSoC2015 - SUMO Documentation</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/GSoC2015.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="index.html" style="display: inline-block; margin-top: 5px;"><img src="images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#describe_your_organization">Describe your organization.</a></li>
+            <li class="nav-item main"><a href="#why_do_we_apply">Why do we apply</a></li>
+            <li class="nav-item main"><a href="#ideas_list">Ideas list</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#implementing_macroscopic_assignment_models" class="nav-link">• Implementing macroscopic assignment models</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#vissim_importer" class="nav-link">• VISSIM importer</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#application_launcher" class="nav-link">• Application Launcher</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#intersection_analysis" class="nav-link">• Intersection analysis</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#left-hand_traffic" class="nav-link">• Left-hand traffic</a>
+                </li>
+            <li class="nav-item main"><a href="#mentor_selection_criteria">Mentor selection criteria</a></li>
+            <li class="nav-item main"><a href="#plan_for_dealing_with_disappearing_students">Plan for dealing with disappearing students</a></li>
+            <li class="nav-item main"><a href="#plan_for_dealing_with_disappearing_mentors">Plan for dealing with disappearing mentors</a></li>
+            <li class="nav-item main"><a href="#steps_for_encouraging_interaction_with_the_community_pre_during_and_post">Steps for encouraging interaction with the community (pre, during and post)</a></li>
+            <li class="nav-item main"><a href="#how_to_encouraging_students_to_stick_with_the_project">How to encouraging students to stick with the project</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>GSoC2015<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<p><a href="https://www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2015/help_page#1._How_does_a_mentoring_organization">Here is the list of steps for the application.</a>
+This page should answer all the questions on the list which need more
+than yes/no or a list of names</p>
+<h2 id="describe_your_organization">Describe your organization.<a class="headerlink" href="#describe_your_organization" title="Permanent link">#</a></h2>
+<p>...</p>
+<h2 id="why_do_we_apply">Why do we apply<a class="headerlink" href="#why_do_we_apply" title="Permanent link">#</a></h2>
+<ul>
+<li>outreach</li>
+<li>gain more developers</li>
+</ul>
+<h2 id="ideas_list">Ideas list<a class="headerlink" href="#ideas_list" title="Permanent link">#</a></h2>
+<p><em>At a minimum, all the ideas on your Ideas List should include the
+expected outcome of the project, a potential mentor, the skills and/or
+languages required to complete the project, and a general "difficulty"
+level.</em></p>
+<h3 id="implementing_macroscopic_assignment_models">Implementing macroscopic assignment models<a class="headerlink" href="#implementing_macroscopic_assignment_models" title="Permanent link">#</a></h3>
+<ul>
+<li>Goal: Have more than just iterative assignment (At least Lohse etc.)</li>
+<li>Mentor: <a class="gh-link gh-mention" href="https://github.com/behrisch" title="GitHub User: @behrisch">@behrisch</a></li>
+<li>Skills: C++, some math</li>
+<li>Difficulty: medium</li>
+</ul>
+<h3 id="vissim_importer">VISSIM importer<a class="headerlink" href="#vissim_importer" title="Permanent link">#</a></h3>
+<ul>
+<li>Convert at least basic VISSIM networks from recent versions into the
+  SUMO format</li>
+<li>Mentor: <a class="gh-link gh-mention" href="https://github.com/behrisch" title="GitHub User: @behrisch">@behrisch</a></li>
+<li>Skills: C++, XML</li>
+<li>Difficulty: medium</li>
+</ul>
+<h3 id="application_launcher">Application Launcher<a class="headerlink" href="#application_launcher" title="Permanent link">#</a></h3>
+<ul>
+<li>Currently, the command line must be used frequently when preparing a
+  simulation. To make life easier for many users, a launcher
+  application for setting options and selecting input files via
+  dialogs should be created. A wizard-type interface should be added
+  to streamline common tasks.</li>
+<li>Mentor: <a class="gh-link gh-mention" href="https://github.com/namdre" title="GitHub User: @namdre">@namdre</a></li>
+<li>Skills: python</li>
+<li>Difficulty: medium (easy, if experience with GUI frameworks exists)</li>
+</ul>
+<h3 id="intersection_analysis">Intersection analysis<a class="headerlink" href="#intersection_analysis" title="Permanent link">#</a></h3>
+<p>Smartphone app (android, of course!) that can, from the position of the
+phone, compute the corresponding intersection geometry by using
+openstreetmap data, supported eventually by measurements from the phone
+itself (distances e.g.). It then writes these data to a SUMO simulation
+file, and has eventually the ability to collect additional traffic data.
+Can be done e.g. as a simple counting app, via the video-camera, the
+microphone, the magnetic field sensor,... (not all of these make sense,
+of course, other sensors might be more suitable)</p>
+<p>In addition to that, it runs a truly fast queueing model on the phone
+itself to determine the optimal cycle time, green splits, delays, and
+the like. This, too, can be supported by measurements from the
+intersection, i.e. the saturation flows for the various connections.</p>
+<ul>
+<li>Mentor: <a class="gh-link gh-mention" href="https://github.com/behrisch" title="GitHub User: @behrisch">@behrisch</a>, Peter Wagner</li>
+<li>Skills: Android development</li>
+<li>Difficulty: medium (easy, if only a frontend to sumo is built)</li>
+</ul>
+<h3 id="left-hand_traffic">Left-hand traffic<a class="headerlink" href="#left-hand_traffic" title="Permanent link">#</a></h3>
+<p>Currently, SUMO only simulates right-hand traffic and therefore cannot
+simulate some parts of the world.</p>
+<ul>
+<li>Mentor: <a class="gh-link gh-mention" href="https://github.com/namdre" title="GitHub User: @namdre">@namdre</a></li>
+<li>Skills: C++</li>
+<li>Difficulty: medium (need to be able to read and comprehend quite a
+  bit of existing code)</li>
+</ul>
+<h2 id="mentor_selection_criteria">Mentor selection criteria<a class="headerlink" href="#mentor_selection_criteria" title="Permanent link">#</a></h2>
+<h2 id="plan_for_dealing_with_disappearing_students">Plan for dealing with disappearing students<a class="headerlink" href="#plan_for_dealing_with_disappearing_students" title="Permanent link">#</a></h2>
+<h2 id="plan_for_dealing_with_disappearing_mentors">Plan for dealing with disappearing mentors<a class="headerlink" href="#plan_for_dealing_with_disappearing_mentors" title="Permanent link">#</a></h2>
+<h2 id="steps_for_encouraging_interaction_with_the_community_pre_during_and_post">Steps for encouraging interaction with the community (pre, during and post)<a class="headerlink" href="#steps_for_encouraging_interaction_with_the_community_pre_during_and_post" title="Permanent link">#</a></h2>
+<h2 id="how_to_encouraging_students_to_stick_with_the_project">How to encouraging students to stick with the project<a class="headerlink" href="#how_to_encouraging_students_to_stick_with_the_project" title="Permanent link">#</a></h2>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

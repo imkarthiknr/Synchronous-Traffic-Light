@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/TraceExporterJar.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory/TraceExporterJar - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/TraceExporterJar.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#introduction">Introduction</a></li>
+            <li class="nav-item main"><a href="#usage">Usage</a></li>
+            <li class="nav-item main"><a href="#example">Example</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#examplary_config_file" class="nav-link">• Examplary Config File</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#examplary_mobility_file" class="nav-link">• Examplary Mobility File</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#examplary_activity_file" class="nav-link">• Examplary Activity File</a>
+                </li>
+            <li class="nav-item main"><a href="#availability">Availability</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory/TraceExporterJar<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<p>Full name: <strong>traceExporter / auto-nomos</strong></p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>This text covers how to convert netstate dumps from sumo for use in ns2
+with help of the tool traceExporter. TraceExporter is written in Java.
+Hence, Java 1.5 Runtime Environment is required.</p>
+<p>A compiled jar-file is included in the sumo release 0.9.5 as well as in
+the actual SVN developer repository. However, generating a trace file
+that covers all penetration rates in one single file is included in the
+SVN-version only.</p>
+<p>Since ns2 allows only positive x- and y-coordinates, the scenario is
+shifted accordingly if negative coordinates are used in the Sumo
+scenario.</p>
+<p>As output you get three files: config, activity and mobility. All are
+tcl source files. Thus, they can be included into the tcl file that
+controls your ns2 simulation using the <code>source</code> command. The config file
+is used to set some opt( )-variables describing the simulation scenario.
+The times in which vehicles do their first and last movement are put
+into the activity-file to start and stop the according agents. The
+movements itself written into the mobility file. See below for exemplary
+output files.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<p>The program is <code>traceExporter.jar</code> is located under tools/traceExporter.
+So, you have to change to this directory and type in the following
+command:</p>
+<pre><code> java -jar traceExporter.jar ns2
+      -n NET_FILE
+      -t TRACE_FILE
+      -a ACTIVITY_FILE
+      -m MOBILITY_FILE
+      -c CONFIG_FILE
+      -p PENTRATION_LEVEL
+      -s SEED_VALUE
+      -b BEGIN_TIME  -e END_TIME
+</code></pre>
+
+<p>Whereby the parameters has to be filles as follows:</p>
+<p><strong><code>-n &lt;NET_FILE&gt;</code></strong></p>
+<p>Set &lt;NET_FILE> to your sumo input. Required, type:filename</p>
+<p><strong><code>-t &lt;TRACE_FILE&gt;</code></strong></p>
+<p>Set as &lt;TRACE_FILE> the tracefile you want to be converted. Required,
+type:filename</p>
+<p><strong><code>-a &lt;ACTIVITY_FILE&gt;</code></strong></p>
+<p>In &lt;ACTIVITY_FILE> will be written, when vehicles will be activated and
+deactivated in simulation. Required, type:filename</p>
+<p><strong><code>-m &lt;MOBILITY_FILE&gt;</code></strong></p>
+<p>In &lt;MOBILITY_FILE> you will find, when vehicles are moved and the
+corresponding position. Required, type:filename</p>
+<p><strong><code>-c &lt;CONFIG_FILE&gt;</code></strong></p>
+<p>&lt;CONFIG_FILE> holds information about simulation settings like extend,
+start/ stop time and number of vehicles in output. Required,
+type:filename</p>
+<p><strong><code>-p &lt;PENETRATION_LEVEL&gt;</code></strong></p>
+<p>Pentration level means the ratio of selecting vehicles that will be
+traced for output. Penetration level of 1 equals no filtering and 0
+means no vehicles will be selected. Required, type:float in [0, 1]</p>
+<p>[SVN-version only] If you omit this flag, a single trace file is
+generated that includes all penetration rates.</p>
+<p><strong><code>-s &lt;SEED_VALUE&gt;</code></strong></p>
+<p>Defines seed value for random number generator. Random numbers are used
+for selecting vehicles if penetration &lt; 1. Same seed results in same
+output, different seeds results in different output. Optional
+(pregiven), type:integer, default:0</p>
+<p><strong><code>-b BEGIN_TIME -e END_TIME</code></strong></p>
+<p>The desired begin and end times must be given with parameters -b and -e.</p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h2>
+<p>After executing the following sumo commands to accomplish the Sumo
+simulation:</p>
+<pre><code>sumo-netconvert -n=nodes.xml -e=edges.xml --output-file=net.xml --disable-normalize-node-positions
+sumo-duarouter --flow-defs=flow.xml --net=net.xml --output-file=routes.xml
+sumo -n net.xml -r routes.xml --netstate-dump netstate.xml
+</code></pre>
+
+<p>You will get:</p>
+<ul>
+<li>&lt;NET_FILE> = net.xml</li>
+<li>&lt;TRACE_FILE> = netstate.xml</li>
+</ul>
+<p>Now you can use:</p>
+<pre><code>java -jar traceExporter.jar ns2 -n net.xml -t netstate.xml -a activity.tcl -m mobility.tcl -c config.tcl -p 1
+</code></pre>
+
+<p>And get:</p>
+<ul>
+<li>&lt;CONFIG_FILE> = config.tcl</li>
+<li>&lt;ACTIVITY_FILE> = activity.tcl</li>
+<li>&lt;MOBILITY_FILE> = mobility.tcl</li>
+</ul>
+<h3 id="examplary_config_file">Examplary Config File<a class="headerlink" href="#examplary_config_file" title="Permanent link">#</a></h3>
+<p>This file should be included first using the tcl <code>source</code> command. It
+establishes a few variables that describes the simulation. Especially
+the number of node is stored in opt(nn).</p>
+<pre><code># set number of nodes
+set opt(nn) 75
+# set activity file
+set opt(af) $opt(config-path)
+append opt(af) /activity_0.05
+# set mobility file
+set opt(mf) $opt(config-path)
+append opt(mf) /mobility_0.05
+# set start/stop time
+set opt(start) 0.0
+set opt(stop) 960.0
+# set floor size
+set opt(x) 20505
+set opt(y) 105
+set opt(min-x) 9495
+set opt(min-y) 95
+</code></pre>
+
+<p>If the -p flag is omitted, all penetration rates are availabe through
+one set of files. The penetration rate for a certain ns2 simulation
+needs to be put into the tcl variable <code>opt(penetration)</code> before
+including the config file. The resulting number of nodes is then
+generated by a bunch of lines as the following:</p>
+<pre><code>if { $opt(penetration) &gt; 0.0 } { set opt(nn) 1 }
+if { $opt(penetration) &gt; 6.756756756756757E-4 } { set opt(nn) 2 }
+if { $opt(penetration) &gt; 0.0013513513513513514 } { set opt(nn) 3 }
+if { $opt(penetration) &gt; 0.002027027027027027 } { set opt(nn) 4 }
+if { $opt(penetration) &gt; 0.002702702702702703 } { set opt(nn) 5 }
+...
+if { $opt(penetration) &gt; 0.9972972972972973 } { set opt(nn) 1477 }
+if { $opt(penetration) &gt; 0.9979729729729729 } { set opt(nn) 1478 }
+if { $opt(penetration) &gt; 0.9986486486486487 } { set opt(nn) 1479 }
+if { $opt(penetration) &gt; 0.9993243243243243 } { set opt(nn) 1480 }
+</code></pre>
+
+<h3 id="examplary_mobility_file">Examplary Mobility File<a class="headerlink" href="#examplary_mobility_file" title="Permanent link">#</a></h3>
+<p>After setting up an adequate number of nodes (see opt(nn)) into a
+<code>node_()</code> array with ascending indeces, the mobility file can be read.
+It sets the nodes to their initial position ...</p>
+<pre><code>$node_(0) set X_ 10010.621
+$node_(0) set Y_ 95.05
+$node_(0) set Z_ 0.0
+$node_(1) set X_ 14103.43
+$node_(1) set Y_ 95.05
+$node_(1) set Z_ 0.0
+...
+</code></pre>
+
+<p>... and moves them to new positions on a per second base:</p>
+<pre><code>$ns_ at 0.0 &quot;$node_(0) setdest 10016.319 95.05 5.69794&quot;
+$ns_ at 0.0 &quot;$node_(1) setdest 14130.41 95.05 26.983&quot;
+$ns_ at 1.0 &quot;$node_(0) setdest 10022.548 95.05 6.22927&quot;
+$ns_ at 1.0 &quot;$node_(1) setdest 14157.391 95.05 26.9835&quot;
+$ns_ at 2.0 &quot;$node_(0) setdest 10029.239 95.05 6.69121&quot;
+$ns_ at 2.0 &quot;$node_(1) setdest 14184.391 95.05 26.9942&quot;
+...
+</code></pre>
+
+<p>The lines are a little bit unsorted throughout the file. Thereby the
+conversion time is accelerated. It shouldn't influence ns2.</p>
+<h3 id="examplary_activity_file">Examplary Activity File<a class="headerlink" href="#examplary_activity_file" title="Permanent link">#</a></h3>
+<p>The activity file can be used to toggle agents on and off, just when
+their according node enters or leave the scenario. To make use of this,
+agents need to be put in an array called g(). It is assumed, that agents
+indeces accord to their associated nodes.</p>
+<pre><code>$ns_ at 0.0 &quot;$g(0) start&quot;
+$ns_ at 417.0 &quot;$g(0) stop&quot;
+$ns_ at 0.0 &quot;$g(1) start&quot;
+$ns_ at 238.0 &quot;$g(1) stop&quot;
+...
+</code></pre>
+
+<hr />
+<h2 id="availability">Availability<a class="headerlink" href="#availability" title="Permanent link">#</a></h2>
+<p>Source: The sources can be found within the SUMO-distribution
+(<strong><em>&lt;SUMO_DIST></em>/tools/traceExporter</strong>)</p>
+<p>Portable: yes (uses Java/Python)</p>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

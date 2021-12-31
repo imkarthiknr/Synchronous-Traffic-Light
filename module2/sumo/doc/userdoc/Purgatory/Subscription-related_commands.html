@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/Subscription-related_commands.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory Subscription-related commands - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/Subscription-related_commands.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#subscription-related_commands">Subscription-related commands</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#command_0x61_subscribe_lifecycles" class="nav-link">• Command 0x61: Subscribe Lifecycles</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#response_0x63_object_creation" class="nav-link">&rarr; Response 0x63: Object Creation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#response_0x64_object_destruction" class="nav-link">&rarr; Response 0x64: Object Destruction</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#command_0x62_unsubscribe_lifecycles" class="nav-link">• Command 0x62: Unsubscribe Lifecycles</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#command_0x65_subscribe_domain" class="nav-link">• Command 0x65: Subscribe Domain</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#response_0x67_update_object" class="nav-link">&rarr; Response 0x67: Update Object</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#command_0x66_unsubscribe_domain" class="nav-link">• Command 0x66: Unsubscribe Domain</a>
+                </li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory Subscription-related commands<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<h1 id="subscription-related_commands">Subscription-related commands<a class="headerlink" href="#subscription-related_commands" title="Permanent link">#</a></h1>
+<h2 id="command_0x61_subscribe_lifecycles">Command 0x61: Subscribe Lifecycles<a class="headerlink" href="#command_0x61_subscribe_lifecycles" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center">ubyte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Domain</td>
+</tr>
+</tbody>
+</table>
+<p>Subsequent creation/destruction of an object in <em>Domain</em> will trigger an
+<strong>Object Creation</strong>/<strong>Object Destruction</strong> response, respectively.</p>
+<h3 id="response_0x63_object_creation">Response 0x63: Object Creation<a class="headerlink" href="#response_0x63_object_creation" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">ubyte</th>
+<th align="center">integer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Domain</td>
+<td align="center">DomainId</td>
+</tr>
+</tbody>
+</table>
+<p>Sent after an object <em>DomainId</em> was created in a <em>Domain</em> the client
+previously subscribed to using a <strong>Subscribe Lifecycles</strong> command.</p>
+<h3 id="response_0x64_object_destruction">Response 0x64: Object Destruction<a class="headerlink" href="#response_0x64_object_destruction" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">ubyte</th>
+<th align="center">integer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Domain</td>
+<td align="center">DomainId</td>
+</tr>
+</tbody>
+</table>
+<p>Sent after an object <em>DomainId</em> was destroyed in a <em>Domain</em> the client
+previously subscribed to using a <strong>Subscribe Lifecycles</strong> command.</p>
+<h2 id="command_0x62_unsubscribe_lifecycles">Command 0x62: Unsubscribe Lifecycles<a class="headerlink" href="#command_0x62_unsubscribe_lifecycles" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center">ubyte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Domain</td>
+</tr>
+</tbody>
+</table>
+<p>Cancels a lifecycle subscription previously initiated with a <strong>Subscribe
+Lifecycles</strong> command.</p>
+<h2 id="command_0x65_subscribe_domain">Command 0x65: Subscribe Domain<a class="headerlink" href="#command_0x65_subscribe_domain" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center">ubyte</th>
+<th align="center">ubyte</th>
+<th align="center">ubyte</th>
+<th align="center">ubyte</th>
+<th align="center">...</th>
+<th align="center">ubyte</th>
+<th align="center">ubyte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Domain</td>
+<td align="center">Variable Count</td>
+<td align="center">Variable 1</td>
+<td align="center">ValueDataType 1</td>
+<td align="center">...</td>
+<td align="center">Variable n</td>
+<td align="center">ValueDataType n</td>
+</tr>
+</tbody>
+</table>
+<p>Subsequent update of an object in <em>Domain</em> will trigger an <strong>Update
+Object</strong> response.</p>
+<h3 id="response_0x67_update_object">Response 0x67: Update Object<a class="headerlink" href="#response_0x67_update_object" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">ubyte</th>
+<th align="center">integer</th>
+<th align="center">ValueDataType 1</th>
+<th align="center">...</th>
+<th align="center">ValueDataType n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Domain</td>
+<td align="center">DomainId</td>
+<td align="center">Value 1</td>
+<td align="center">...</td>
+<td align="center">Value n</td>
+</tr>
+</tbody>
+</table>
+<p>Sent after an object <em>DomainId</em> was updated in a <em>Domain</em> the client
+previously subscribed to using a <strong>Subscribe Domain</strong> command. The
+response will contain all variables specified with the last
+subscription, using the exact order and type given.</p>
+<h2 id="command_0x66_unsubscribe_domain">Command 0x66: Unsubscribe Domain<a class="headerlink" href="#command_0x66_unsubscribe_domain" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center">ubyte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Domain</td>
+</tr>
+</tbody>
+</table>
+<p>Cancels a domain subscription previously initiated with a <strong>Subscribe
+Domain</strong> command.</p>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

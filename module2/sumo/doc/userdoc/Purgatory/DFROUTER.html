@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/DFROUTER.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory/DFROUTER - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/DFROUTER.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#usage">Usage</a></li>
+            <li class="nav-item main"><a href="#comments">Comments</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#why_the_route_distribution_may_be_different_from_what_is_expected" class="nav-link">• Why the route distribution may be different from what is expected</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#why_variable_speed_signs_show_velocities_of_200ms" class="nav-link">• Why variable speed signs show velocities of 200m/s</a>
+                </li>
+            <li class="nav-item main"><a href="#behaviour_to_define">Behaviour to define</a></li>
+            <li class="nav-item main"><a href="#tests">Tests</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#tri_completely_defined" class="nav-link">• tri_completely_defined</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#tri_no_first" class="nav-link">• tri_no_first</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#tri_last_only" class="nav-link">• tri_last_only</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#tri_missing_first_left_values" class="nav-link">• tri_missing_first_left_values</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#tri_missing_first_left_noempty" class="nav-link">• tri_missing_first_left_noempty</a>
+                </li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory/DFROUTER<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<p>See <a href="../DFROUTER.html">DFROUTER</a> in the <a href="../SUMO_User_Documentation.html">User Documentation</a>.</p>
+<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h2>
+<h3 id="why_the_route_distribution_may_be_different_from_what_is_expected">Why the route distribution may be different from what is expected<a class="headerlink" href="#why_the_route_distribution_may_be_different_from_what_is_expected" title="Permanent link">#</a></h3>
+<ul>
+<li>The time described by the detectors values may end before what shall
+  be generated; if, for example, routes for a whole day shall be
+  generated (b=0, e=86400, the defaults) but the detectors only
+  contain information for one minute, the route distribution is still
+  estimated for the whole day while detector values are missing. In
+  this case, the distribution may differ from what is expected (being
+  the one during the described time).</li>
+</ul>
+<h3 id="why_variable_speed_signs_show_velocities_of_200ms">Why variable speed signs show velocities of 200m/s<a class="headerlink" href="#why_variable_speed_signs_show_velocities_of_200ms" title="Permanent link">#</a></h3>
+<ul>
+<li>If the DFROUTER finds a detector entry with v=0, it sets the allowed
+  velocity in the according vss to 200km/h. The idea is not to set a
+  limit when no valid value exists.</li>
+</ul>
+<h2 id="behaviour_to_define">Behaviour to define<a class="headerlink" href="#behaviour_to_define" title="Permanent link">#</a></h2>
+<ul>
+<li>What shall be done if a detector value is missing?</li>
+</ul>
+<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">#</a></h2>
+<h3 id="tri_completely_defined">tri_completely_defined<a class="headerlink" href="#tri_completely_defined" title="Permanent link">#</a></h3>
+<p>Simple network:</p>
+<p><a href="http://sumo.sourceforge.net/wiki_images/dfrouter_tricomplete_net.gif">http://sumo.sourceforge.net/wiki_images/dfrouter_tricomplete_net.gif</a></p>
+<p>All detector values are supplied correctly</p>
+<ul>
+<li>
+<ul>
+<li>tri_flows1_1step_straight: the straight direction has 10
+    vehicles running</li>
+<li>tri_flows1_1step_left: the left direction has 10 vehicles
+  running</li>
+<li>tri_flows1_1step_right: the right direction has 10 vehicles
+  running</li>
+<li>tri_flows1_1step_equal: all directions have 10 vehicles
+  running</li>
+<li>tri_flows1_1step_more_straight: the straight direction has
+  20, left and right have 10 vehicles running</li>
+<li>tri_flows1_1step_more_left: the left direction has 20,
+  straight and right have 10 vehicles running</li>
+<li>tri_flows1_1step_more_right: the right direction has 20,
+  straight and left have 10 vehicles running</li>
+</ul>
+</li>
+</ul>
+<p>Flows from tri_flows1_1step_more_left (the darker the more):</p>
+<p><a href="http://sumo.sourceforge.net/wiki_images/dfrouter_tricomplete_flow_more_left.gif">http://sumo.sourceforge.net/wiki_images/dfrouter_tricomplete_flow_more_left.gif</a></p>
+<h3 id="tri_no_first">tri_no_first<a class="headerlink" href="#tri_no_first" title="Permanent link">#</a></h3>
+<p>The first detectors of the left/right arms are missing</p>
+<p>This is meant to verify whether a detector may lie on a later edge.</p>
+<h3 id="tri_last_only">tri_last_only<a class="headerlink" href="#tri_last_only" title="Permanent link">#</a></h3>
+<p>Only the last detectors of the left/right arms exist.</p>
+<p>This is meant to verify whether a detector may lie on a later edge.</p>
+<h3 id="tri_missing_first_left_values">tri_missing_first_left_values<a class="headerlink" href="#tri_missing_first_left_values" title="Permanent link">#</a></h3>
+<p>All detectors exist (as in tri_completely_defined) but the first
+detector to left has no value.</p>
+<p>The tests show that:</p>
+<ul>
+<li>it is reported that this detector has no value as soon as the option
+  "--report-empty-detectors" is set</li>
+<li>the routes change as missing values for the first detector are
+  interpreted as flow=0</li>
+</ul>
+<h3 id="tri_missing_first_left_noempty">tri_missing_first_left_noempty<a class="headerlink" href="#tri_missing_first_left_noempty" title="Permanent link">#</a></h3>
+<p>Same as (as in tri_missing_first_left_values) but the option
+"--remove-empty-detectors" is used.</p>
+<p>The tests show that:</p>
+<ul>
+<li>it is reported that the detector that has no values is removed from
+  the list of known detectors</li>
+<li>the original routes are restored (thos from
+  tri_completely_defined) because the subsequent detectors on the
+  left arm have correct flows</li>
+</ul>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 12 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

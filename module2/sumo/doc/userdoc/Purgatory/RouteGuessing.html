@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/RouteGuessing.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory/RouteGuessing - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/RouteGuessing.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#why_random_routes_are_evil_and_some_bullets">Why random Routes are evil and some Bullets</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#probability_to_use_a_road" class="nav-link">• Probability to use a Road</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#transit_traffic" class="nav-link">• Transit Traffic</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#turning_directions" class="nav-link">• Turning Directions</a>
+                </li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory/RouteGuessing<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<div class="admonition missing">
+<p class="admonition-title">Missing</p>
+<p>This text is not complete. We hope to find someone who actually does the job as a part of his study. Please <a href="../Contact.html">contact</a> us if you are interested in this topic and know someone who can contribute.</p>
+</div>
+<h1 id="why_random_routes_are_evil_and_some_bullets">Why random Routes are evil and some Bullets<a class="headerlink" href="#why_random_routes_are_evil_and_some_bullets" title="Permanent link">#</a></h1>
+<p>In the past, both route computation applications from the SUMO suite,
+namely <a href="../DUAROUTER.html">DUAROUTER</a> and
+<a href="../JTRROUTER.html">JTRROUTER</a> had the possibility to generate random
+routes. Some people were happy with this feature; we were not,
+especially because of the frequent questions on the usage of this
+feature.</p>
+<p>This text explains why it is strongly NOT recommended to use random
+routes. It also shows some attempts for solving the problem of having no
+demand by some more sophisticated approaches for route generation.</p>
+<p>As a base, we will use two example networks for which we know the
+demand:</p>
+<ul>
+<li>The first is a network from the city of Bologna. It stems from the
+  iTETRIS project and arrived us as a Vissim simulation scenario,
+  including both the network and the routes. It is an urban scenario.</li>
+<li>The second is a higway scenario. We have reconstructed the routes
+  using information collected on observation points (induction loops)
+  for the TrafficOnline project. We suppose the demand to be valid.</li>
+</ul>
+<p>Ok, now we build random routes for both scenarios, choosing randomly a
+source edge ("road") and a destination edge. We generate as many
+vehicles as are simulated within the real, correct demand. Here are the
+results:</p>
+<p>Ok, what has happened, what is different?</p>
+<ul>
+<li>The probability to use a road differs between the original and the
+  random demand</li>
+<li>The mean velocities differ</li>
+<li>In the original scenarios, there is less traffic during night, more
+  at day, most during the peek hours.</li>
+</ul>
+<p>We will now address the issues one by one.</p>
+<h2 id="probability_to_use_a_road">Probability to use a Road<a class="headerlink" href="#probability_to_use_a_road" title="Permanent link">#</a></h2>
+<p>When using a random demand, we choose a small road with the same
+probability to be a starting/ending road as we do with a big one. One
+could argue that the capacity for standing vehicles of big roads are
+similar to those of small roads - may be, but I personally would assume
+that smaller roads are statistically less frequented during work time,
+mainly only during the rush hour where persons are leaving their homes
+or coming back. Shopping places are found rather on the major roads what
+makes them more probably to be used as origins/destinations during the
+day. Also, there are parking places etc, also mostly accessed from the
+major roads. Of course, this may be not true for shopping areas, where
+people try to find parking places in covered small streets. Nonetheless,
+this is supposed to be seldom - and, you don't know this from just
+looking at the road network.</p>
+<p>As a conclusion, it is rather not assumed to choose minor and major
+roads for origins and sources with the same frequency. Still, we have no
+solution for this. But read further...</p>
+<h2 id="transit_traffic">Transit Traffic<a class="headerlink" href="#transit_traffic" title="Permanent link">#</a></h2>
+<p>Choosing randomly an edge from within the network completely ignores the
+fact that the smaller the simulated area is, the more traffic is just
+transiting the network - enters the network at its boundaries and leaves
+the network at its boundaries.</p>
+<p>Of course, for our highway scenario, this is probably the largest source
+of mismodelling - no one starts or ends his trip in at a place in the
+middle of the highway.</p>
+<p>So for improving our method for route generation, we have to determine
+the network's boundaries and the edges which are incoming into it or
+outgoing from it. We can then try to use those as the major
+origins/destination of our routes.</p>
+<h2 id="turning_directions">Turning Directions<a class="headerlink" href="#turning_directions" title="Permanent link">#</a></h2>
+<p>Some people who tried the random routes generator may have noticed that
+many vehicles were turning. This is BTW also the case with our first
+"sophisticated" approach. The reason is very simple: if we choose two
+roads randomly, the probability to choose an origin which points to the
+opposite direction then the destination is located in is about 50%;
+sure, in detail this depends on the network topology. The same counts
+for the destination; the probability that the route ends at the road
+into the opposite direction is also high, maybe not 50%, but still high.</p>
+<p>In real life, you have to turn at least once, too. Nonetheless, due to
+not having transit traffic, the overall number of turnings is much
+larger in random routes than in reality.</p>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

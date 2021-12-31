@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/GSMSurveillance.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory/GSMSurveillance - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/GSMSurveillance.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#gsm-based_surveillance">GSM-based Surveillance</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#how_vehicles_can_be_tracked_using_gsm" class="nav-link">• How Vehicles can be tracked using GSM</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#usage_of_sumo_in_trafficonline" class="nav-link">• Usage of SUMO in TrafficOnline</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#traffic_simulation" class="nav-link">&rarr; Traffic Simulation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#simulation_of_cellular_telephony" class="nav-link">&rarr; Simulation of Cellular Telephony</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#the_current_approach" class="nav-link">• The current Approach</a>
+                </li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory/GSMSurveillance<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<div class="admonition missing">
+<p class="admonition-title">Missing</p>
+<p>This text is currently under work</p>
+</div>
+<h1 id="gsm-based_surveillance">GSM-based Surveillance<a class="headerlink" href="#gsm-based_surveillance" title="Permanent link">#</a></h1>
+<p>TrafficOnline (1) is a traffic surveillance system based on tracking GSM
+cellular phones located in vehicles. This system was developed by a
+consortium within the "Verkehrsmanagement 2010" initiative. One of
+TrafficOnline’s sub-topics dealt with a simulation-based evaluation of
+the system. A simulation was used because it allows modeling and
+reproduction of certain traffic situations at well-defined time and
+space. It was decided to use SUMO for this purpose due to its
+availability as open source what allows to extend it easily.</p>
+<p>Below, it is described what steps have been done to perform the
+simulation. The telephony model originally implemented in SUMO was
+removed from the code after a while.</p>
+<h2 id="how_vehicles_can_be_tracked_using_gsm">How Vehicles can be tracked using GSM<a class="headerlink" href="#how_vehicles_can_be_tracked_using_gsm" title="Permanent link">#</a></h2>
+<p>GSM-telephony takes place within a network of stationary cells and each
+"connected", meaning currently used, cellular phone is assigned to a
+"serving cell", mostly the cell with the best connection to the phone.
+Additionally, a list of the next best serving cells is hold within the
+phone. Evaluations done during the TrafficOnline project have shown that
+one can find distinct combinations of these list’s entries at certain
+areal positions when the quality of each connection between a cellular
+phone and a cell is taken into account. These additional points which
+allow determining a cellular phone’s position will be called
+<em>TOL-points</em> in the following.</p>
+<p>Especially in the case of a moving call, so-called "handovers" of calls
+between two cells get necessary when the call moves from one serving
+cell to another one. Handovers do not take place for unused phones. Used
+and unused phones are assigned to a "location area" (LA), a structure
+made up of several GSM-cells. Due to the larger size of location areas
+in comparison to cells, handovers of unused cellular phones are more
+seldom than those of used ones.</p>
+<p>Handovers at cell- and LA-boundaries are tracked by the GSM-system.
+Additionally, it is possible for the system to obtain and store the list
+of best serving cells of each cellular phone. All this information
+allows tracking a moving, cellular phone through the network at certain
+positions, made up of the cell and la-boundaries and of TOL-points. The
+density of these positions is larger for used phones, where not only
+crossing of LA-boundaries can be observed by the system. When projected
+on the road network, one can compute traveling times for a cellular
+phone between the positions knowing their distances. Additional
+information about the GSM-network and how the TOL-systems works can be
+found in (2, 3).</p>
+<h2 id="usage_of_sumo_in_trafficonline">Usage of SUMO in TrafficOnline<a class="headerlink" href="#usage_of_sumo_in_trafficonline" title="Permanent link">#</a></h2>
+<p>Five areas located in Berlin, Germany, as shown in figure 1, were chosen
+for which partners supplied information about road traffic amounts by
+means of induction loop and infrared sensor data, and about the
+utilization of the corresponding GSM network in the form of log-files
+containing anonymous data of calls. The areas were chosen in order to
+cover a large-most number of different road types and possible
+disturbances. For these areas, the locations of the corresponding
+TOL-points were prepared, encoded into geo-coordinates, and assigned to
+the road sections.</p>
+<h3 id="traffic_simulation">Traffic Simulation<a class="headerlink" href="#traffic_simulation" title="Permanent link">#</a></h3>
+<p>The digital road networks for the specified areas were extracted from a
+digital road map bought from NavTeq (6). Only those roads near to those
+concerned by TOL-points were extracted for the simulation, other roads
+were discarded. The resulting maps were converted into the SUMO-format
+using a tool from the SUMO-package, <a href="../NETCONVERT.html">NETCONVERT</a>.
+This tool automatically computes right-of-way rules at junctions and the
+necessary connections between lanes across the junctions. Both are
+missing within most digital networks. After this prior conversion, the
+obtained SUMO-networks were compared with satellite photos from
+GoogleEarth (7) in order to find mismatches in the number of lanes
+between digital and real roads and to locate junctions equipped with
+traffic lights. The original digital road data was adjusted in order to
+eliminate the mismatches found using GoogleEarth. Afterwards the
+conversion was redone. Finally, further work was done in order to
+eliminate falsely computed connections between lanes and to make the
+simulated traffic lights’ programs fit more to reality.</p>
+<p>The demand of an average day for each of the areas was modeled using
+point count data collected between June and August 2006 at weekdays from
+Tuesday to Thursday. Where possible, within highway areas where
+induction loops are located at all on- and off-ramps, vehicle routes
+could be built automatically using a tool from the SUMO-package named
+<a href="../DFROUTER.html">DFROUTER</a>. This tool imports count data,
+determines whether a detector may be used as a source, sink, or none of
+both for the given area, and calculates the probabilities for using
+routes between each sink/source pair. In addition,
+<a href="../DFROUTER.html">DFROUTER</a> can compute vehicle flows which shall be
+inserted at source positions in a format the simulation can read. In
+those scenarios in which sensors were less dense in reality, the routes
+and their distributions were built by hand. The traffic amount for
+average traffic was implemented into the simulation using so-called
+"emitters". In <a href="../SUMO.html">SUMO</a>, these simulation structures can
+be placed at a certain position of a lane and can insert vehicles into
+the network. Each vehicle is inserted at a defined time. In our case
+these vehicles’ routes were assigned from the previously computed route
+distributions. The vehicles’ types were assigned to the vehicles using a
+vehicle type distribution. The flows used by the emitters were computed
+using <a href="../DFROUTER.html">DFROUTER</a> in all cases.</p>
+<p>Where possible, count data which was not used for emitting vehicles was
+used to validate the simulation. Figure 2 shows a set of comparisons
+between flows from real life and the simulation across a real and a
+simulated induction loop. A comparison of simulated and real speeds was
+not possible, because they were not in the provided sensor data set.</p>
+<h3 id="simulation_of_cellular_telephony">Simulation of Cellular Telephony<a class="headerlink" href="#simulation_of_cellular_telephony" title="Permanent link">#</a></h3>
+<p>In order to keep the simulation fast, no attempt was done to determine
+the correct serving cell of a device by using the vehicle’s position.
+Instead, the cell boundaries of real-world cells, given as a set of
+GIS-polygons, were laid over the simulated road network to get the
+positions both cross. At the resulting intersections, so called
+"cell-actors" were placed within the simulation. When a simulated
+cellular phone passes such a "cell-actor", it is informed about having
+entered a new cell and both the prior and the new serving cell are
+informed about the phone’s cell change. If a simulated phone in
+connected mode enters a cell or if a phone starts a call within a cell,
+this cell increments one of the internal "moving call" counters – either
+the one for incoming or the one for outgoing calls. Besides this, the
+information about the duration each phone was within the cell is
+computed, too. This information is used for calibrating the telephony
+model, as shown later on. The applied approach assumes that stationary
+calls are first of all made by slowly moving pedestrians or not moving
+occupants of the area. Due to this assumption and the fact that it is
+not yet possible to simulate single persons with SUMO, the stationary
+calls are not generated by the simulation using a telephony model.
+Instead, the amounts of stationary calls, again split into incoming and
+outgoing calls, are once extracted from real-life data and later passed
+to the simulation. This is done for each cell in intervals of 5 minutes.
+These statistics are joined with the moving calls generated by the
+simulation when writing the output. In combination with the number of
+simulated in-vehicle devices this information represents the
+"COLLECTORCS" output. The TOL-points are modeled similar to the cell
+crossings. "TOL-actors" are placed on the road network at the positions
+of the TOL-points. They save the call id of each cellular phone that
+crosses them in “connected mode” together with the id of the ROL-point
+and the time the vehicle has crossed it. This information is immediately
+saved into the data table "COLLECTORPOS", by what this output need by
+the TrafficOnline algorithm is completely implemented.</p>
+<p>When starting their trips, the simulated in-vehicle cellular phones do
+not know the cell they are located in because they have not yet passed a
+"cell-actor". Their state is set to idle initially. As soon as a
+simulated cellular phone is assigned to a cell, it starts asking the
+simulation whether to switch into the connected mode, what is repeated
+every step of the simulation. In order to get the probability to start a
+call, a simulation of a normal day was performed at first for each of
+the simulated areas. Within these simulation runs, every vehicle was
+equipped with exactly one cellular phone device. The previously
+mentioned durations a device was located in the area were summed up over
+an interval of 30 minutes. This sum’s unit is vehicle-seconds per 30
+minutes. Based upon this value and the mean number of moving calls
+within the same period retrieved from real-life data, the probability to
+start a call within a cell i has been computed for a given time interval
+using the following formula:</p>
+<pre><code>                                                          (1)
+</code></pre>
+
+<p>where is the probability to start a call within cell i within the
+interval, is the number of measured cellular calls within this cell and
+interval, and is the duration vehicle j was within cell i within the
+interval.</p>
+<p>The information about the GSM traffic (amount of calls, changeovers
+etc.) was not provided for every cell of all the simulation areas.
+Furthermore, it was assumed that there are only minor differences
+between the parameters of the telephony behavior regarding cells within
+a small area. Thus, a common, time-dependent starting probability of a
+call was calculated for each area. A generic probability for all areas
+was neglected because of the infrastructural differences, amongst others
+concerning the road types and the means of travel, between them. As the
+information about the direction of the connections (incoming – outgoing)
+is not yet used by the TOL algorithm, the percentage of moving calls was
+set up to 50% for all simulation runs. As the results of analyses of the
+real-life GSM data show, the percentage of incoming calls for moving
+calls is about 45%. In addition to the probability for a cellular phone
+to switch to connected mode, also the duration of a call had to be
+modeled. The available real-life data contains the information about the
+duration of each call, so a distribution function could be generated.
+For the right part of the distribution, starting at duration of 60
+seconds, the curve was assumed to be a log-normal distribution. The
+parameters were obtained by fitting the data to the log-normal
+distribution function concerning the respective range of values.
+Consequently, the computation of the call durations was modeled using
+the following equation:</p>
+<pre><code>                                                    (2)
+</code></pre>
+
+<p>where is the duration of a call in ms, and are uniformly distributed
+random number in range (0, 1] and is a uniformly distributed random
+number in range [0, 1]. A comparison between the measured and the
+modeled call duration frequencies is shown in figure 3. Calibrated with
+the probability curves, validation simulations using normal day traffic
+were performed. Figure 4 shows a comparison between the amounts of
+moving calls for the days real data existed, their mean value, and the
+simulation results. It is evident that the model is accurate concerning
+the moving calls, though it fails within cells in which vehicles begin
+their route, shown in the diagram at the bottom right of figure 4.</p>
+<h2 id="the_current_approach">The current Approach<a class="headerlink" href="#the_current_approach" title="Permanent link">#</a></h2>
+<p>As said, the original code used within TrafficOnline was removed from
+SUMO. There were several reasons for this</p>
+<ul>
+<li>The original code used hard-coded values for telephony probability</li>
+<li>No further usage was avised after the project's end</li>
+<li>The code was bloated by the telephony "simulation"</li>
+</ul>
+<p>The current approach is to use <a href="../TraCI.html">TraCI</a> for simulating
+GSM-based surveillance. We set up the scenarios as done in
+TrafficOnline, but determining if a vehicle is crossing a cell or a LA
+boundary is done in an external script which is also responsible for
+simulating the telephony behaviour.</p>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

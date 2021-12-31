@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Downloads.html">
+        <link rel="shortcut icon" href="favicon.ico">
+        
+        <title>Downloads - SUMO Documentation</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Downloads.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="index.html" style="display: inline-block; margin-top: 5px;"><img src="images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#note_on_licensing">Note on Licensing</a></li>
+            <li class="nav-item main"><a href="#packages">Packages</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#repositories" class="nav-link">• Repositories</a>
+                </li>
+            <li class="nav-item main"><a href="#sumo_-_latest_release_version_150">SUMO - Latest Release (Version 1.5.0)</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#ms_windows_binaries" class="nav-link">• MS Windows binaries</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#linux_binaries" class="nav-link">• Linux binaries</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#macos_binaries" class="nav-link">• macOS binaries</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#sources" class="nav-link">• Sources</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#all-inclusive-tarball" class="nav-link">• All-inclusive-tarball</a>
+                </li>
+            <li class="nav-item main"><a href="#sumo_-_latest_development_version">SUMO - Latest Development Version</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#nightly_snapshots" class="nav-link">• Nightly Snapshots</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#nightly_snapshots_alternative_download_server" class="nav-link">• Nightly Snapshots alternative download server</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#direct_repository_access" class="nav-link">• Direct repository access</a>
+                </li>
+            <li class="nav-item main"><a href="#sumo_-_alternative_download_and_older_releases">SUMO - Alternative download and older releases</a></li>
+            <li class="nav-item main"><a href="#dependencies_for_developers">Dependencies for developers</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Downloads<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<p>Here, you will find SUMO both as sources and as compiled binaries.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Windows users probably want to use <a href="https://sumo.dlr.de/releases/1.5.0/sumo-win64-1.5.0.msi">this installer</a>, Linux users might want to look at the available <a href="Downloads.html#repositories">repositories</a> or use the <a href="https://sumo.dlr.de/releases/1.5.0/sumo-src-1.5.0.tar.gz">source</a>.</p>
+</div>
+<p>Please <a href="Contact.html">contact</a> us if you have any problems. If you
+want to report a bug, please <a href="https://github.com/eclipse/sumo/issues/new">open a GitHub
+issue</a>. For further
+information about the changes between releases see the
+<a href="ChangeLog.html">ChangeLog</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have problems running SUMO because of missing files/commands/dlls please consult <a href="FAQ.html#basic_usage">FAQ#Basic_Usage</a></p>
+</div>
+<h2 id="note_on_licensing">Note on Licensing<a class="headerlink" href="#note_on_licensing" title="Permanent link">#</a></h2>
+<p>SUMO is licensed under the
+<a href="https://eclipse.org/legal/epl-v20.html">EPL-2.0</a> using only <a href="Libraries_Licenses.html">open
+source libraries</a>.</p>
+<p>The standard build only contains code and windows binaries with Eclipse
+approved licenses (especially no GPL and LGPL code). If you need
+features like shapefile import or the OpenSceneGraph 3D GUI download the
+"extra" build.</p>
+<h2 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">#</a></h2>
+<p>SUMO is available as different packages. The contents of each package is
+listed in the table below.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>bin</th>
+<th>build</th>
+<th>src (source code)</th>
+<th>user docs</th>
+<th>developer docs (doxygen)</th>
+<th>data</th>
+<th>examples</th>
+<th>tutorials</th>
+<th>tests</th>
+<th>tools (except jars)</th>
+<th>jars</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sumo-src-<em>XXX</em>.tar.gz<br>sumo-src-<em>XXX</em>.zip</td>
+<td></td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td></td>
+<td></td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td></td>
+<td>&#10004;</td>
+<td></td>
+</tr>
+<tr>
+<td>sumo-win??-<em>XXX</em>.zip<br>sumo-win??-<em>XXX</em>.msi</td>
+<td>&#10004;</td>
+<td></td>
+<td></td>
+<td>&#10004;</td>
+<td></td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td></td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+</tr>
+<tr>
+<td>sumo-all-<em>XXX</em>.tar.gz<br>sumo-all-<em>XXX</em>.zip</td>
+<td></td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td></td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+</tr>
+<tr>
+<td>rpm</td>
+<td>(&#10004;)</td>
+<td></td>
+<td></td>
+<td>&#10004;</td>
+<td></td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td></td>
+<td>&#10004;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="repositories">Repositories<a class="headerlink" href="#repositories" title="Permanent link">#</a></h3>
+<p>In addition to the open build service, there are a debian and an ubuntu
+launchpad project as well as an archlinux package:</p>
+<ul>
+<li><a href="https://build.opensuse.org/project/show/home:behrisch">https://build.opensuse.org/project/show/home:behrisch</a></li>
+<li><a href="https://salsa.debian.org/science-team/sumo.git">https://salsa.debian.org/science-team/sumo.git</a></li>
+<li><a href="https://launchpad.net/~sumo">https://launchpad.net/~sumo</a></li>
+<li><a href="https://aur.archlinux.org/packages/sumo/">https://aur.archlinux.org/packages/sumo/</a></li>
+</ul>
+<p>To add sumo to your ubuntu (11.04 and later) you will need to do:</p>
+<pre><code>sudo add-apt-repository ppa:sumo/stable
+sudo apt-get update
+sudo apt-get install sumo sumo-tools sumo-doc
+</code></pre>
+
+<p>This is still an experimental feature, feedback is welcome.</p>
+<h2 id="sumo_-_latest_release_version_150">SUMO - Latest Release (Version 1.5.0)<a class="headerlink" href="#sumo_-_latest_release_version_150" title="Permanent link">#</a></h2>
+<p><strong>Release date: 11.02.2020</strong></p>
+<h3 id="ms_windows_binaries">MS Windows binaries<a class="headerlink" href="#ms_windows_binaries" title="Permanent link">#</a></h3>
+<p>Contains the binaries (32 or 64 bit), all dlls needed, the examples,
+tools, and documentation in HTML format.</p>
+<ul>
+<li>Download 64 bit installer: <a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-win64-1.5.0.msi">sumo-win64-1.5.0.msi </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win64-1.5.0.msi","r");?></span></li>
+<li>Download 64 bit zip: <a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-win64-1.5.0.zip">sumo-win64-1.5.0.zip </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win64-1.5.0.zip","r");?></span></li>
+<li>Download 64 bit zip with all extras: <a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-win64extra-1.5.0.zip">sumo-win64extra-1.5.0.zip </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win64extra-1.5.0.zip","r");?></span></li>
+<li>Download 32 bit installer: <a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-win32-1.5.0.msi">sumo-win32-1.5.0.msi </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win32-1.5.0.msi","r");?></span></li>
+<li>Download 32 bit zip: <a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-win32-1.5.0.zip">sumo-win32-1.5.0.zip </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win32-1.5.0.zip","r");?></span></li>
+</ul>
+
+<h3 id="linux_binaries">Linux binaries<a class="headerlink" href="#linux_binaries" title="Permanent link">#</a></h3>
+<p>They are created by the <a href="https://en.opensuse.org/Build_Service">open build
+service</a> If the repositories do
+not contain the libraries (like proj and gdal) they are either part of
+the distribution or you will need them from another repository (you may
+try one of the build service repositories here too, e.g.
+<a href="https://download.opensuse.org/repositories/Application:/Geo/">Application:Geo</a>).
+At the moment there is no documentation included in the packages. The
+repositories include a nightly build as well (called sumo_nightly).</p>
+<ul>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/openSUSE_42.1/">openSUSE Leap 42.1 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/openSUSE_Leap_42.2/">openSUSE Leap 42.2 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/openSUSE_Leap_42.3/">openSUSE Leap 42.3 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/openSUSE_Leap_15.0/">openSUSE Leap 15.0 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/openSUSE_Leap_15.1/">openSUSE Leap 15.1 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/openSUSE_Tumbleweed/">openSUSE Tumbleweed repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/Fedora_26/">Fedora 26 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/Fedora_27/">Fedora 27 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/Fedora_28/">Fedora 28 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/Fedora_29/">Fedora 29 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/Fedora_30/">Fedora 30 repository</a></li>
+<li><a href="http://download.opensuse.org/repositories/home:/behrisch/Fedora_Rawhide/">Fedora Rawhide repository</a></li>
+</ul>
+<p>There are <a href="https://build.opensuse.org/repositories/home:behrisch">more Linux RPM
+repositories</a> but
+in a less well maintained state (CentOS and Scientific missing gdal
+support for instance) because the opensuse build service does not
+provide the necessary packages any longer. Ubuntu and Debian users
+please see above for repository information.</p>
+<h3 id="macos_binaries">macOS binaries<a class="headerlink" href="#macos_binaries" title="Permanent link">#</a></h3>
+<p>"Bottles" are available for installing with
+<a href="https://brew.sh/">Homebrew</a>. They are built for the two most recent
+major macOS versions (currently High Sierra and Mojave) and are built
+from source with minimal requirements (fox, proj, xerces-c). If you need
+optional libraries, you can specify these on the brew command line and
+brew will compile sumo from source. For details, see the <a href="https://github.com/DLR-TS/homebrew-sumo/blob/master/README.md">Formula's
+README</a>.</p>
+<h3 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">#</a></h3>
+<p>Includes sources, examples, and CMake-files for creating Visual Studio
+solutions or Linux Makefiles. Does not contain tests. Download as:</p>
+<ul>
+<li><a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-src-1.5.0.tar.gz">sumo-src-1.5.0.tar.gz </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-src-1.5.0.tar.gz","r");?></span></li>
+<li><a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-src-1.5.0.zip">sumo-src-1.5.0.zip </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-src-1.5.0.zip","r");?></span></li>
+</ul>
+
+<h3 id="all-inclusive-tarball">All-inclusive-tarball<a class="headerlink" href="#all-inclusive-tarball" title="Permanent link">#</a></h3>
+<p>Includes sources, tests and docs but no binaries. Download as:</p>
+<ul>
+<li><a class="no-arrow-link" href="https://sumo.dlr.de/releases/1.5.0/sumo-all-1.5.0.tar.gz">sumo-all-1.5.0.tar.gz </a><span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-all-1.5.0.tar.gz","r");?></span></li>
+</ul>
+
+<h2 id="sumo_-_latest_development_version">SUMO - Latest Development Version<a class="headerlink" href="#sumo_-_latest_development_version" title="Permanent link">#</a></h2>
+<p>SUMO is under active development. You can find a continuously updated
+list of bug-fixes and enhancements at our
+<a href="ChangeLog.html">ChangeLog</a>. To make use of the latest features
+<a href="Contact.html">(and to give us pre-release feedback)</a> we encourage
+you to use the latest version from our <a href="https://github.com/eclipse/sumo/">code repository</a>.</p>
+<h3 id="nightly_snapshots">Nightly Snapshots<a class="headerlink" href="#nightly_snapshots" title="Permanent link">#</a></h3>
+<p>The code within the repository is <a href="Developer/Nightly_Build.html">compiled each
+night</a>. The following resulting
+packages can be obtained:</p>
+<ul>
+<li>Sources: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-src-git.tar.gz">https://sumo.dlr.de/daily/sumo-src-git.tar.gz </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-src-git.tar.gz","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-src-git.tar.gz","d");?></span></li>
+<li>Sources: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-src-git.zip">https://sumo.dlr.de/daily/sumo-src-git.zip </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-src-git.zip","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-src-git.zip","d");?></span></li>
+<li>Sources, documentation and tests: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-all-git.tar.gz">https://sumo.dlr.de/daily/sumo-all-git.tar.gz </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-all-git.tar.gz","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-all-git.tar.gz","d");?></span></li>
+<li>Windows, 32bit: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-win32-git.zip">https://sumo.dlr.de/daily/sumo-win32-git.zip </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-win32-git.zip","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win32-git.zip","d");?></span></li>
+<li>Windows, 64bit: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-win64-git.zip">https://sumo.dlr.de/daily/sumo-win64-git.zip </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-win64-git.zip","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win64-git.zip","d");?></span></li>
+<li>Windows 64bit binaries of the SUMO game: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-game-win64-git.zip">https://sumo.dlr.de/daily/sumo-game-win64-git.zip </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-game-win64-git.zip","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-game-win64-git.zip","d");?></span></li>
+<li>Windows installer, 32bit: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-win32-git.msi">https://sumo.dlr.de/daily/sumo-win32-git.msi </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-win32-git.msi","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win32-git.msi","d");?></span></li>
+<li>Windows installer, 64bit: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-win64-git.msi">https://sumo.dlr.de/daily/sumo-win64-git.msi </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-win64-git.msi","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win64-git.msi","d");?></span></li>
+<li>Windows 64bit with GDAL, FFmpeg, OSG, GL2PS, SWIG: <a class="no-arrow-link" href="https://sumo.dlr.de/daily/sumo-win64extra-git.zip">https://sumo.dlr.de/daily/sumo-win64extra-git.zip </a><span class="badge badge-pill badge-light"><?php getFileDate("sumo-win64extra-git.zip","d");?></span> <span class="badge badge-pill badge-secondary"><?php getFileSize("sumo-win64extra-git.zip","d");?></span></li>
+</ul>
+
+<p>The Linux repositories specified above contain a nightly build as well.</p>
+<p><a href="https://sumo.dlr.de/daily/userdoc">The corresponding documentation</a> is
+also visible live including <a href="https://sumo.dlr.de/daily/doxygen">Doxygen
+docs</a>. Additional artifacts such as
+<a href="https://sumo.dlr.de/daily">tests results</a> and <a href="https://sumo.dlr.de/daily/lcov/html/">code coverage
+analysis</a> are generated every
+night.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The available windows binary packages may lag behind the <a href="https://github.com/eclipse/sumo/commits/master">latest Git revision</a> due to being compiled only once per day (around midnight, Berlin time).</p>
+</div>
+<h3 id="nightly_snapshots_alternative_download_server">Nightly Snapshots alternative download server<a class="headerlink" href="#nightly_snapshots_alternative_download_server" title="Permanent link">#</a></h3>
+<p>All nightly builds are also available at the following alternative
+locations</p>
+<ul>
+<li><a href="http://sumo.sourceforge.net/daily/sumo-src-git.tar.gz">http://sumo.sourceforge.net/daily/sumo-src-git.tar.gz</a> (sources)</li>
+<li><a href="http://sumo.sourceforge.net/daily/sumo-src-git.zip">http://sumo.sourceforge.net/daily/sumo-src-git.zip</a> (sources)</li>
+<li><a href="http://sumo.sourceforge.net/daily/sumo-win32-git.zip">http://sumo.sourceforge.net/daily/sumo-win32-git.zip</a> (windows, 32bit)</li>
+<li><a href="http://sumo.sourceforge.net/daily/sumo-win64-git.zip">http://sumo.sourceforge.net/daily/sumo-win64-git.zip</a> (windows, 64bit)</li>
+<li><a href="http://sumo.sourceforge.net/daily/sumo-game-win64-git.zip">http://sumo.sourceforge.net/daily/sumo-game-win64-git.zip</a> (windows 64bit binaries of the sumo game)</li>
+<li><a href="http://sumo.sourceforge.net/daily/sumo-win32-git.msi">http://sumo.sourceforge.net/daily/sumo-win32-git.msi</a> (windows installer, 32bit)</li>
+<li><a href="http://sumo.sourceforge.net/daily/sumo-win64-git.msi">http://sumo.sourceforge.net/daily/sumo-win64-git.msi</a> (windows installer, 64bit)</li>
+</ul>
+<h3 id="direct_repository_access">Direct repository access<a class="headerlink" href="#direct_repository_access" title="Permanent link">#</a></h3>
+<p>You can get very latest sources directly from our Git repository, see
+<a href="FAQ.html#how_do_i_access_the_code_repository">the FAQ on repository access</a>.
+Normally, they should compile and complete our test suite successfully.
+To assess the current state of the build, you may take a look at the
+<a href="https://sumo.dlr.de/daily/">nightly test statistics</a>.</p>
+<h2 id="sumo_-_alternative_download_and_older_releases">SUMO - Alternative download and older releases<a class="headerlink" href="#sumo_-_alternative_download_and_older_releases" title="Permanent link">#</a></h2>
+<p>All releases can also be obtained via the <a href="https://sourceforge.net/projects/sumo/files/sumo/">sourceforge download
+portal</a></p>
+<h2 id="dependencies_for_developers">Dependencies for developers<a class="headerlink" href="#dependencies_for_developers" title="Permanent link">#</a></h2>
+<p>For the Windows platform you can retrieve all dependencies by cloning
+this repository <a href="https://github.com/DLR-TS/SUMOLibraries">https://github.com/DLR-TS/SUMOLibraries</a>, if you want
+to develop with Visual Studio. If you just want to run SUMO, use the
+binary downloads above which already contain the runtime dependencies.</p>
+<?php
+function getFileDate($fname, $type){
+    switch($type){
+    case "r":
+    $file = "/releases/1.5.0/" . $fname;
+    break;
+    case "d":
+    $file = "/daily/" . $fname;
+    break;
+}
+$file = $_SERVER['DOCUMENT_ROOT']. $file;
+if(file_exists($file)){
+    echo date ("F d Y H:i:s", filemtime($file)) . " UTC";
+}}
+function getFileSize($fname, $type){
+switch($type){
+    case "r":
+    $file = "/releases/1.5.0/" . $fname;
+    break;
+    case "d":
+    $file = "/daily/" . $fname;
+    break;
+}
+$file = $_SERVER['DOCUMENT_ROOT']. $file;
+if(file_exists($file)){
+echo round(((filesize($file))/1048576),1) . " MB";
+}}
+?>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 09 January 2020</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

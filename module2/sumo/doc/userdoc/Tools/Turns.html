@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Tools/Turns.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Tools/Turns - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Tools/Turns.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#jtcrouterpy">jtcrouter.py</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#turn_count_data_format" class="nav-link">• Turn count data format</a>
+                </li>
+            <li class="nav-item main"><a href="#routesamplerpy">routeSampler.py</a></li>
+            <li class="nav-item main"><a href="#generateturnratiospy">generateTurnRatios.py</a></li>
+            <li class="nav-item main"><a href="#generateturndefspy">generateTurnDefs.py</a></li>
+            <li class="nav-item main"><a href="#turncount2edgecountpy">turnCount2EdgeCount.py</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Tools/Turns<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<h1 id="jtcrouterpy">jtcrouter.py<a class="headerlink" href="#jtcrouterpy" title="Permanent link">#</a></h1>
+<p>The <strong>J</strong>unction<strong>T</strong>urn<strong>C</strong>ountRouter generates vehicle routes from turn-count data.
+It does so by converting the turn counts into into flows and turn-ratio files that are suitable as <a href="../JTRROUTER.html">JTRROUTER</a> input.
+Then it calls JTRROUTER in the background. The turn</p>
+<pre><code>&lt;SUMO_HOME&gt;/tools/jtcrouter.py -n &lt;net-file&gt; -t &lt;turn-file&gt; -o &lt;output-file&gt;
+</code></pre>
+
+<p>There are three basic styles of converting turn-counts to routes:</p>
+<ul>
+<li>Flows start at all turn-count locations in the network but end when reaching the next count location</li>
+<li>Flows start at all turn-count locations in the network and are discounted when reaching the next count location (<strong>--discount-sources</strong>)</li>
+<li>Flows only start on the fringe of the network (<strong>--fringe-flows</strong>)</li>
+</ul>
+<h2 id="turn_count_data_format">Turn count data format<a class="headerlink" href="#turn_count_data_format" title="Permanent link">#</a></h2>
+<p>The turn-count data must be provided in the format:</p>
+<pre><code>&lt;turns&gt;
+   &lt;interval begin=&quot;0&quot; end=&quot;3600&quot;&gt;
+      &lt;fromEdge id=&quot;myEdge0&quot;&gt;
+         &lt;toEdge id=&quot;myEdge1&quot; probability=&quot;25&quot;/&gt;
+         &lt;toEdge id=&quot;myEdge2&quot; probability=&quot;100&quot;/&gt;
+         &lt;toEdge id=&quot;myEdge3&quot; probability=&quot;42&quot;/&gt;
+      &lt;/fromEdge&gt;
+
+      ... any other edges ...
+
+   &lt;/interval&gt;
+
+   ... some further intervals ...
+
+&lt;/turns&gt;
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The attribute 'probability' can replaced with any other attribute name by setting the option <strong>--turn-attribute <attrname></strong>. The default value of 'probability' is used for consistency with <a href="../JTRROUTER.html">JTRROUTER</a> and <a href="#generateturnratiospy">generateTurnRatios.py</a>.</p>
+</div>
+<h1 id="routesamplerpy">routeSampler.py<a class="headerlink" href="#routesamplerpy" title="Permanent link">#</a></h1>
+<p>The script generates routes from turn-count data. It requires a route file as
+input that defines possible routes. Routes are sampled (heuristically) from the input so that
+the resulting routes fullfill the turn-count data.</p>
+<pre><code>&lt;SUMO_HOME&gt;/tools/routeSampler.py -r &lt;input-route-file&gt; -t &lt;turn-file. -o &lt;output-file&gt;
+</code></pre>
+
+<p>The turn-count data format is the same as as described <a href="#turn-count-data-format">above</a>.
+In addition to loading a turn-count file, routeSampler can also load an <a href="../Simulation/Output/Lane-_or_Edge-based_Traffic_Measures.html">edgeData
+file</a> using option <strong>--edgedata-file</strong>.
+The attributes for reading the counts from the turn-data file and edgedata-file
+can be set with options</p>
+<ul>
+<li><strong>--turn-attribute</strong> (default 'probability')</li>
+<li><strong>--edgedata-attribute</strong> (default 'entered')</li>
+</ul>
+<h1 id="generateturnratiospy">generateTurnRatios.py<a class="headerlink" href="#generateturnratiospy" title="Permanent link">#</a></h1>
+<p>This script is used to calculate the turn ratios from a
+an edge to its downstream edge with a given route file. The output file
+can be directly used as input in <a href="../JTRROUTER.html">JTRROUTER</a>. The time interval will span the minimum and maximum departure times of the route file.</p>
+<pre><code>&lt;SUMO_HOME&gt;/tools/generateTurnRatios.py -r &lt;route-file&gt;
+</code></pre>
+
+<p>The standard output is the traffic volumes (which JTRROUTER normalizes automatically). With the option <strong>-p</strong>,  turning ratios will be written as values from [0,1].</p>
+<h1 id="generateturndefspy">generateTurnDefs.py<a class="headerlink" href="#generateturndefspy" title="Permanent link">#</a></h1>
+<p>This script allows generation of the turn definitions based on the
+number of lanes allowing particular turns. The basic functionality
+distributes the traffic uniformly, that is:</p>
+<ol>
+<li>distribute the incoming traffic uniformly across the lanes forming
+    the road</li>
+<li>distribute the amount of traffic assigned to each lane uniformly
+    among the destinations that the lane allows turns to.</li>
+<li>sum up the values for each of the destinations that the road being
+    processed allows turning to.</li>
+</ol>
+<p>Example use</p>
+<pre><code>&lt;SUMO_HOME&gt;/tools/turn-defs/generateTurnDefs.py --connections-file connections.con.xml --turn-definitions-file output.turndefs.xml
+</code></pre>
+
+<p>The script allows to be extended with new traffic distribution policies
+(for example, based on Gaussian distribution) easily. See the
+<em>DestinationWeightCalculator</em> class for details.</p>
+<p>The script processes the connections given in the provided <em>*.con.xml</em>
+file. For usage details, execute the <em>generateTurnDefs.py</em> script with
+<em>--help</em> option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can generate a connections file with all the connections in the network using <a href="../NETCONVERT.html">NETCONVERT</a> - see the <em>--plain-output-prefix</em> option.</p>
+</div>
+<h1 id="turncount2edgecountpy">turnCount2EdgeCount.py<a class="headerlink" href="#turncount2edgecountpy" title="Permanent link">#</a></h1>
+<p>This script converts turn-count data into <a href="../Simulation/Output/Lane-_or_Edge-based_Traffic_Measures.html">edgeData</a>.</p>
+<pre><code>&lt;SUMO_HOME&gt;/tools/turn-defs/turnCount2EdgeCount.py -t &lt;turn-file&gt; -o &lt;output-file&gt;
+</code></pre>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 10 February 2020</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

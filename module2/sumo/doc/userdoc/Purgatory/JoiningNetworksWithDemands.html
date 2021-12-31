@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/JoiningNetworksWithDemands.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory/JoiningNetworksWithDemands - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/JoiningNetworksWithDemands.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#step1_build_joined_network">Step1: Build joined Network</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#step11_make_network_parts_unique" class="nav-link">• Step1.1: Make Network Parts unique</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#step12_find_and_remove_overlapping_parts" class="nav-link">• Step1.2: Find and remove overlapping Parts</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#step13_determine_and_apply_the_network_offsets" class="nav-link">• Step1.3: Determine and apply the Network Offsets</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#step14_join_networks" class="nav-link">• Step1.4: Join Networks</a>
+                </li>
+            <li class="nav-item main"><a href="#step2_join_routes">Step2: Join Routes</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory/JoiningNetworksWithDemands<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<h2 id="step1_build_joined_network">Step1: Build joined Network<a class="headerlink" href="#step1_build_joined_network" title="Permanent link">#</a></h2>
+<h3 id="step11_make_network_parts_unique">Step1.1: Make Network Parts unique<a class="headerlink" href="#step11_make_network_parts_unique" title="Permanent link">#</a></h3>
+<p>Both networks must have distinct ids. The most straight forward approach
+seemed to be to use a prefix. The edges and nodes of both networks were
+changed by adding an "a" and a "b", respectively. This was done using a
+text editor. Because edges reference nodes and connections, all three
+files - edges, nodes, and connections - must have been changed. The
+following replacements were done:</p>
+<ul>
+<li>in nodes:<ul>
+<li>id=" to id="a</li>
+</ul>
+</li>
+<li>in edges:<ul>
+<li>id=" to id="a<ul>
+<li>watch out - replacing the id also replaces lane ids; this
+  must be reset afterwards</li>
+</ul>
+</li>
+<li>from=" to from="a</li>
+<li>to=" to to="a</li>
+</ul>
+</li>
+<li>in connections:<ul>
+<li>from=" to from="a</li>
+<li>to=" to to="a</li>
+<li>additionally, the prohibitions were searched and changed</li>
+<li>watch out - some to-definitions are empty (dead ends) must be
+  reset to these afterwards</li>
+</ul>
+</li>
+</ul>
+<h3 id="step12_find_and_remove_overlapping_parts">Step1.2: Find and remove overlapping Parts<a class="headerlink" href="#step12_find_and_remove_overlapping_parts" title="Permanent link">#</a></h3>
+<p>For the used networks, their overlapping parts, edges, and nodes were
+determined. For each combination, it was decided which shall be kept -
+the other one will be not included in the final network. I decided to
+set up a map for edges as following:</p>
+<pre><code>a86-&gt;b2[0]
+a85-&gt;b1[1]
+b44-&gt;a67
+b81-&gt;a11
+b43-&gt;a68
+b40[0]-&gt;a72[0],a72[1]
+b41-&gt;a17
+b42-&gt;a71
+b40[1]-&gt;a69
+b48-&gt;a181,a18
+b54-&gt;a224[1]
+a136-&gt;b49[0]
+a135-&gt;b50[1]a
+a179-&gt;b47
+a180-&gt;b46
+a84-&gt;b38[0],b38[0]a
+a12-&gt;b45
+a83-&gt;b39[1][1][1]
+a137-&gt;b36
+a138-&gt;b37
+a121-&gt;b35[1][1][1][1]
+a114-&gt;b12
+</code></pre>
+
+<p>The meaning is that the edge in front of the "->" will be later
+replaced by the one after the "->". One may note that in some places,
+two edges were found, where in the other network, only one existed.</p>
+<p>The edges in front of the "->" were removed from the according edges
+file. They of course must also be replaced within the connections file.
+Due to the relatively large effort, this was done using a tiny script.
+"mapEdgesInConnections.py" obtains the map-file (assuming it is named
+"edgemap.txt", and a connections file and simply replaces all
+occurrences of the edges' to replace ids by the ids of the corresponding
+edges to keep. The connections file must be given as first parameter, as
+output a file with the given file name with appended ".mod.xml" is
+generated.</p>
+<p>Corresponding junctions were also determined and written as above. The
+last entry is in brackets, because it was assumed to be not
+participating in the later following re-projection of one of the
+networks.</p>
+<pre><code>b1-&gt;a9
+b36-&gt;a15
+a81-&gt;b39
+(a57-&gt;b32)
+</code></pre>
+
+<p>Of course, the from/to information within the edges file must be mapped,
+too. Due to the small number of replacements to be done, this was done
+using a text editor. Also, the information about "controlled inner
+edges" was patched.</p>
+<h3 id="step13_determine_and_apply_the_network_offsets">Step1.3: Determine and apply the Network Offsets<a class="headerlink" href="#step13_determine_and_apply_the_network_offsets" title="Permanent link">#</a></h3>
+<p>As both networks have their origin at around (0,0), we have to apply an
+offset to one of the networks, so that they are not over each other. We
+use the previously built road networks and the positions of the
+overlapping nodes found in step 1.2.</p>
+<pre><code>a9/b1: 583.69,1061.56  /  929.79,278.76   --&gt; -346.1,782.8
+a15/b36: 798.63,985.75  /  1161.21,244.44 --&gt; -362.58,741.31
+a81/b39: 852.00,1127.00  / 1199.56,342.43 --&gt; -347.56,784.57
+</code></pre>
+
+<p>As may be noted, the a15/b36 combination diverges from the others. A
+visual inspection proves that the nodes' positions differ from their
+actual shapes. That's why the middle node is removed from the
+computation. The mean offset (a-b) is then:</p>
+<pre><code>-346.83,783.685
+</code></pre>
+
+<p>This offset must be applied to one network's node positions and edge
+shapes. Due to large number, again two scripts were prepared,
+xmlnodes_applyOffset.py and xmledges_applyOffset.py.</p>
+<h3 id="step14_join_networks">Step1.4: Join Networks<a class="headerlink" href="#step14_join_networks" title="Permanent link">#</a></h3>
+<p>Simply call netconvert using all generated files.</p>
+<h2 id="step2_join_routes">Step2: Join Routes<a class="headerlink" href="#step2_join_routes" title="Permanent link">#</a></h2>
+<hr />
+<p>583,69-929,79=-346,1 1061,56-278,76=782,8 798,63-1161,21=-362,58
+985,75-244,44=741,31 852,00-1199,56=-347,56 1127,00-342,43=784,57</p>
+<p>(-346,1+-347,56)/2=-346,83 (782,8+784,57)/2=783,685</p>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Other/Glossary.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Other/Glossary - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Other/Glossary.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#a">A</a></li>
+            <li class="nav-item main"><a href="#c">C</a></li>
+            <li class="nav-item main"><a href="#d">D</a></li>
+            <li class="nav-item main"><a href="#e">E</a></li>
+            <li class="nav-item main"><a href="#f">F</a></li>
+            <li class="nav-item main"><a href="#i">I</a></li>
+            <li class="nav-item main"><a href="#j">J</a></li>
+            <li class="nav-item main"><a href="#l">L</a></li>
+            <li class="nav-item main"><a href="#m">M</a></li>
+            <li class="nav-item main"><a href="#n">N</a></li>
+            <li class="nav-item main"><a href="#o">O</a></li>
+            <li class="nav-item main"><a href="#p">P</a></li>
+            <li class="nav-item main"><a href="#r">R</a></li>
+            <li class="nav-item main"><a href="#s">S</a></li>
+            <li class="nav-item main"><a href="#t">T</a></li>
+            <li class="nav-item main"><a href="#x">X</a></li>
+            <li class="nav-item main"><a href="#z">Z</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Other/Glossary<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<h2 id="a">A<a class="headerlink" href="#a" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>application</strong></p>
+<p>An application is a computer program, herein, an
+"application" mostly means one of the main, compiled programs that
+are included in the SUMO package.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>additional-file</strong></p>
+<p>A file that can be included in a sumo
+configuration. This is needed to load pois, shapes, bus stops and
+variable speed signs. Refer to <a href="../SUMO.html#format_of_additional_files">the format
+description</a> for
+details.</p>
+</li>
+</ul>
+<h2 id="c">C<a class="headerlink" href="#c" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>connection(s)-file</strong></p>
+<p>An XML-file describing connections between edges
+or lanes, see <a href="../Networks/PlainXML.html#connection_descriptions">connection descriptions for importing networks
+defined as
+XML</a></p>
+</li>
+</ul>
+<h2 id="d">D<a class="headerlink" href="#d" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>DELPHI</strong></p>
+<p>Deutschlandweite Echtzeit Verkehrs-Lage und Prognose im
+Ereignisfall</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>destination</strong></p>
+<p>The position of the end of a vehicle journey. Mostly a
+TAZ processed by OD2TRIPs within which a "sink" edge lies</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>detector</strong></p>
+<p>An artificial device for object (mainly vehicle) states
+recognition and/or logging</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>DFD</strong></p>
+<p>Deutsches Fernerkundungsdatenzentrum des DLR</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>district</strong></p>
+<p>see TAZ</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>DLR</strong></p>
+<p>Deutsches Zentrum für Luft- und Raumfahrt</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>DUA</strong></p>
+<p>Dynamic User Assignment</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>DUE</strong></p>
+<p>Dynamic User Equilibrium</p>
+</li>
+</ul>
+<h2 id="e">E<a class="headerlink" href="#e" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>edge</strong></p>
+<p>A single-directed street connection between two points
+(junctions/nodes). An edge contains at least one lane</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>edge(s)-file</strong></p>
+<p>A XML-file describing edges of a road network, see
+<a href="../Networks/PlainXML.html#edge_descriptions">edge descriptions for importing networks defined as
+XML</a></p>
+</li>
+</ul>
+<h2 id="f">F<a class="headerlink" href="#f" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>FCD</strong></p>
+<p>Floating Car Data</p>
+</li>
+</ul>
+<h2 id="i">I<a class="headerlink" href="#i" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>induction loop</strong></p>
+<p>A detector placed on a certain position on a lane
+which recognizes vehicles passing it and logs their attributes
+(speed, size, etc.)</p>
+</li>
+</ul>
+<h2 id="j">J<a class="headerlink" href="#j" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>junction</strong></p>
+<p>The place an edge begins or ends at (same as node)</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>junction logic</strong></p>
+<p>The part of a junction which determines the vehicle
+behaviour at the according junction by using certain right-of-way -
+rules</p>
+</li>
+</ul>
+<h2 id="l">L<a class="headerlink" href="#l" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>link</strong></p>
+<p>A connection between two lanes within a junction. Within
+microsim, each lane has links (connections) to the following lanes.
+A link contains the information whether the vehicle has to
+decelerate in front of the junction.</p>
+</li>
+</ul>
+<h2 id="m">M<a class="headerlink" href="#m" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>macroscopic</strong></p>
+<p>In a macroscopic traffic (flow) simulation, the atomic
+instances are roads; the flow is simulated directly (see
+microscopic)</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>mesoscopic</strong></p>
+<p>In a mesoscopic traffic (flow) simulation, the streets
+are partitioned into sections which multiple vehicles may enter and
+leave at each simulation step</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>microscopic</strong></p>
+<p>In a microscopic traffic (flow) simulation, the atomic
+instances are vehicles; the flow is simulated by simulating the
+vehicles (see macroscopic)</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>multimodal</strong></p>
+<p>A multimodal traffic simulation is capable of processing
+different types of traffic (busses, trains, vehicles etc.)</p>
+</li>
+</ul>
+<h2 id="n">N<a class="headerlink" href="#n" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>(street) network</strong></p>
+<p>In our terms, a network is the combination of
+junctions (nodes) and edges (streets)</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>node</strong></p>
+<p>A node (junction) is a single point were at least one edge
+(road) starts or ends</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>node(s)-file</strong></p>
+<p>A XML-file describing nodes of a road network, see
+<a href="../Networks/PlainXML.html#node_descriptions">node descriptions for importing networks defined as
+XML</a></p>
+</li>
+</ul>
+<h2 id="o">O<a class="headerlink" href="#o" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>O/D-matrix (od-matrix)</strong></p>
+<p>Origin/Destination-matrix; describes how
+many vehicles are moving from each origin to each destination within
+a certain time period</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>option</strong></p>
+<p>A parameter for the application which determines what or how
+an application shall do</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>origin</strong></p>
+<p>The position of the begin of a vehicle journey. Mostly a TAZ
+processed by OD2TRIPs within which a "source" edge lies</p>
+</li>
+</ul>
+<h2 id="p">P<a class="headerlink" href="#p" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>poi</strong></p>
+<p>short for "point of interest"; A position of an object that may
+be interesting</p>
+</li>
+</ul>
+<h2 id="r">R<a class="headerlink" href="#r" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>route</strong></p>
+<p>A route is a complete description of a vehicle's path over
+the network; it contains the information when the vehicle departs
+(the route starts) and over which edges the vehicle shall drive</p>
+</li>
+</ul>
+<h2 id="s">S<a class="headerlink" href="#s" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>script</strong></p>
+<p>A small computer program which normally doees not have to be
+compiled. The SUMO package includes several scripts, most written in
+Python</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>source</strong></p>
+<p>A source means a place at which vehicles are inserted into
+the street network</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>source-tar-ball</strong></p>
+<p>A file containing the sources (program code) for a
+project. The source code must be compiled in order to get the
+runnable application. It is called "tar-ball" because of using the
+application "tar" to join all the source files into a single file.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>submicroscopic</strong></p>
+<p>In a submicroscopic traffic (flow) simulation, the
+atomic instances are parts of the vehicle or the driver (gearing or
+behavior is modelled)</p>
+</li>
+</ul>
+<h2 id="t">T<a class="headerlink" href="#t" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>TAZ</strong></p>
+<p>Traffic Assignment Zone, <a href="../Demand/Importing_O/D_Matrices.html#describing_the_taz">a collection of edges describing a
+part of a road network's
+area</a>
+(also called 'district')</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>TLS</strong></p>
+<p>traffic lights system</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>trip</strong></p>
+<p>A reduced information about a vehicle's movement; contains
+only the departure time, the begin, and the end edge. Must be
+transformed into a route using a router for being used within the
+simulation</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>trip-table (trip list)</strong></p>
+<p>A file containing several trips</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>TS</strong></p>
+<p>Institute of Transportation Systems at the German Aerospace
+Center (DLR)</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>TS-BS</strong></p>
+<p>TS Standort Braunschweig</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>TS-BA</strong></p>
+<p>TS Standort Berlin-Adlershof</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>type(s)-file</strong></p>
+<p>A XML-file describing types of streets, see <a href="../Networks/PlainXML.html#type_descriptions">type
+descriptions for importing networks defined as
+XML</a></p>
+</li>
+</ul>
+<h2 id="x">X<a class="headerlink" href="#x" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p><strong>XML</strong></p>
+<p>"e<strong>X</strong>tensible <strong>M</strong>arkup <strong>L</strong>anguage is a universal format
+for structured documents and data" as the w3c says. Further
+information may be found at <a href="http://www.w3c.org/XML/">http://www.w3c.org/XML/</a> or
+<a href="http://en.wikipedia.org/wiki/XML">http://en.wikipedia.org/wiki/XML</a>. Most of the data read and
+written by SUMO is stored as XML, see also the page on <a href="File_Extensions.html">file
+types</a>.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>XSD</strong></p>
+<p><strong>X</strong>ML <strong>S</strong>chema <strong>D</strong>efinitions "... provide a means for
+defining the structure, content and semantics of XML documents" as
+the w3c says. Further information may be found at
+<a href="http://www.w3.org/XML/Schema">http://www.w3.org/XML/Schema</a> or
+<a href="http://en.wikipedia.org/wiki/XML_Schema_%28W3C%29">http://en.wikipedia.org/wiki/XML_Schema_%28W3C%29</a>. A part of the
+XML data formats used by SUMO is covered by xsd, see the page on
+<a href="File_Extensions.html">file types</a>.</p>
+</li>
+</ul>
+<h2 id="z">Z<a class="headerlink" href="#z" title="Permanent link">#</a></h2>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

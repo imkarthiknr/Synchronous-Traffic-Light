@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/Lane_Changing.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory/Lane Changing - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/Lane_Changing.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#theory">Theory</a></li>
+            <li class="nav-item main"><a href="#navigation_level">Navigation Level</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#best_lanes_structure" class="nav-link">• Best Lanes Structure</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#introduction" class="nav-link">&rarr; Introduction</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#computation" class="nav-link">&rarr; Computation</a>
+                </li>
+            <li class="nav-item main"><a href="#tactical_level">Tactical Level</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#special_cases" class="nav-link">• Special Cases</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#leaving_place_in_case_of_counter-changes" class="nav-link">&rarr; Leaving place in case of counter-changes</a>
+                </li>
+            <li class="nav-item main"><a href="#control_level">Control Level</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory/Lane Changing<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<h1 id="theory">Theory<a class="headerlink" href="#theory" title="Permanent link">#</a></h1>
+<h1 id="navigation_level">Navigation Level<a class="headerlink" href="#navigation_level" title="Permanent link">#</a></h1>
+<h2 id="best_lanes_structure">Best Lanes Structure<a class="headerlink" href="#best_lanes_structure" title="Permanent link">#</a></h2>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h3>
+<p>The used networks consist of edges of different lengths and connections
+- possibilities to reach a consecutive edge - between them. When moving
+through the network, a vehicle (driver) has to know which lanes of an
+edge may be used in order to continue its ride. Otherwise - if standing
+on a lane from which the next edge within its route can not be reached -
+it will stay at the edge's end. As a conclusion, lane changing is highly
+dependent on the knowledge about which lanes may be used for continuing
+the ride. The following nomenclature will be used:</p>
+<ul>
+<li>"<em>allowed lane</em>": a lane which allows to move to the next edge
+  (without a lane change)</li>
+<li>"<em>best lane</em>": the allowed lane which allows the longest continued
+  travel on allowed lanes without a lane change</li>
+</ul>
+<p>The information about which lanes are the best ones for continuing the
+ride is stored for each vehicle individually in
+<code>std::vector&lt;std::vector&lt;LaneQ&gt; &gt; MSVehicle::myBestLanes</code>. Each
+vehicle must store the information for itself as this information
+depends on the vehicle's route, and, as later seen, on the density in
+front of the vehicle. The storage saves the information about the "best"
+lanes along the edges of the route, starting at the edge the vehicle is
+currently on. For each edge, the information about each of the edge's
+lanes is stored, starting at the rightmost one. To be exact:</p>
+<ul>
+<li>myBestLanes[0] describes the lanes of the current edge (the edge
+  the vehicle is standing on)</li>
+<li>myBestLanes[1] describes the lanes of the next edge in route</li>
+</ul>
+<p>etc.</p>
+<ul>
+<li>myBestLanes[0][0] describes the rightmost lane of the current
+  edge</li>
+<li>myBestLanes[1][1] describes the second lane of the next edge</li>
+</ul>
+<p>The structure itself - LaneQ - is defined as following:</p>
+<pre><code>struct LaneQ {
+    /// @brief The described lane
+    MSLane *lane;
+    /// @brief The overall length which may be driven when using this lane without a lane change
+    SUMOReal length;
+    /// @brief The overall vehicle sum on consecutive lanes which can be passed without a lane change
+    SUMOReal occupation;
+    /// @brief As occupation, but without the first lane
+    SUMOReal nextOccupation;
+    /// @brief The (signed) number of lanes to be crossed to get to the lane which allows to continue the drive
+    int bestLaneOffset;
+    /// @brief Whether this lane allows to continue the drive
+    bool allowsContinuation;
+    /// @brief Consecutive lane that can be followed without a lane change (contribute to length and occupation)
+    std::vector&lt;MSLane*&gt; bestContinuations;
+};
+</code></pre>
+
+<h3 id="computation">Computation<a class="headerlink" href="#computation" title="Permanent link">#</a></h3>
+<p>myBestlanes is re-computed under following circumstances:</p>
+<ul>
+<li>The vehicle wants to enter the network - as it needs the information
+  about next lanes for computing the allowed speed</li>
+<li>The vehicle moves one edge further - as the whole structure shifts</li>
+<li>The vehicle is leaving a stop; during the computation, the lane the
+  vehicle wants to stop at is regarded and when leaving the stop, best
+  lanes have to be recomputed as they point no longer to this stopping
+  lane but to one that allows to continue the ride</li>
+</ul>
+<p>Additionally, the dynamic information contained in LaneQ is updated in
+each time step:</p>
+<ul>
+<li>nextOccupation</li>
+</ul>
+<p>These steps are always performed before the lane change algorithm
+starts.</p>
+<h4 id="speed-up_possibilities">Speed-Up Possibilities<a class="headerlink" href="#speed-up_possibilities" title="Permanent link">#</a></h4>
+<ul>
+<li>Do not compute the whole structure, but only necessary edges by
+  removing the first ones and appending the missing</li>
+<li>Do not go through all nextLanes for finding a connection, but store
+  (type-dependent) next lanes in a lane and go through them</li>
+<li>Compute some more values in the first (forward) step and save them
+  for late use in the backwards-step</li>
+</ul>
+<h1 id="tactical_level">Tactical Level<a class="headerlink" href="#tactical_level" title="Permanent link">#</a></h1>
+<h2 id="special_cases">Special Cases<a class="headerlink" href="#special_cases" title="Permanent link">#</a></h2>
+<h3 id="leaving_place_in_case_of_counter-changes">Leaving place in case of counter-changes<a class="headerlink" href="#leaving_place_in_case_of_counter-changes" title="Permanent link">#</a></h3>
+<p>It may happen that two vehicles, running on neighbor lanes, want both to
+change to the one the other is at. As long as they run besides each
+other with similar speed, this would not work. The result is a dead-lock
+at the lanes' ends - each of both vehicles can not drive further from
+his lane, and can not change to the allowed lane as it is occupied by
+the other vehicles.</p>
+<p>One attempt to solve this problem is to:</p>
+<ul>
+<li>If a vehicle wants to change a lane and is blocked by a leading
+  vehicle which wants to change to his lane, it stores this leading
+  vehicle's length, and the space left on the allowed lane in internal
+  variables</li>
+<li>If it comes to speed adaptation, the vehicle checks whether it wants
+  to change and has a blocking leader and whether there is enough room
+  for the blocked leader in front. If so, it computes the safe
+  velocity to halt at the place which allows the leading vehicle to
+  merge in. Now, this velocity is used if it is below the vehicle's
+  wanted velocity - if it is approaching the end of the lane, needing
+  a lane change.</li>
+</ul>
+<p>The leading vehicle is performing normal operations, as it has not the
+leading length set.</p>
+<p>Currently not implemented / open issues:</p>
+<ul>
+<li>The distance to the lane's end is stored, not regarding the
+  occupation in front of the vehicle. Maybe, this even is not
+  incorrect - as the vehicles in front would simply continue they
+  ride, making the place available for the vehicle to merge.</li>
+<li>There is a magic number (length) of 1m added to the space needed by
+  the leading vehicle that shall merge in</li>
+<li>What happens if the leader has a leading length set? Will it be
+  resolved as at least one of the vehicles will become a new leader?</li>
+</ul>
+<h1 id="control_level">Control Level<a class="headerlink" href="#control_level" title="Permanent link">#</a></h1>
+<p>As vehicles are always running at the center of a lane and lane changes
+are done discrete, the control level is not considered.</p>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

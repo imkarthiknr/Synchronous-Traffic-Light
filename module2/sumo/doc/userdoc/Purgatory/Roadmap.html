@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook OpenGraph -->
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Purgatory/Roadmap.html">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        <title>Purgatory/Roadmap - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body style="background:#f6f6f6;">
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../SUMO_User_Documentation.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Contact.html" class="nav-link">Contact</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/Main.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Purgatory/Roadmap.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              <i class="fa fa-chevron-circle-down"></i> More
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                      
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll" style="background-color: #f6f6f6 !important;">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#096_we_need_a_release">0.9.6 "We need a release"</a></li>
+            <li class="nav-item main"><a href="#097_testing_is_fun">0.9.7 "Testing is fun"</a></li>
+            <li class="nav-item main"><a href="#010_clean">0.10 "Clean"</a></li>
+            <li class="nav-item main"><a href="#011_another_one_bites_the_dust">0.11 "Another One Bites the Dust"</a></li>
+            <li class="nav-item main"><a href="#012_scotty_is_dead">0.12 "Scotty is dead"</a></li>
+            <li class="nav-item main"><a href="#013_xml_consistency">0.13 "XML consistency"</a></li>
+            <li class="nav-item main"><a href="#014_speed">0.14 "Speed"</a></li>
+            <li class="nav-item main"><a href="#10">1.0</a></li>
+            <li class="nav-item main"><a href="#after_being_retired">After being retired</a></li>
+        </ul>
+    </div>
+</div>
+                      </div>
+                    <div class="col-md-9" role="main" style="background:white; padding:20px; border-radius:8px; margin-top:5px;">
+                        
+                            
+                            <hTitles>Purgatory/Roadmap<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                            
+                        
+
+<h2 id="096_we_need_a_release"><font color="green">0.9.6 "We need a release"</font><a class="headerlink" href="#096_we_need_a_release" title="Permanent link">#</a></h2>
+<ul>
+<li><font color="green">solve <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1718704&amp;group_id=45607&amp;atid=443421">GUILoadThread
+  bug</a></font></li>
+<li><font color="green">recheck whether netconvert indeed crashes</font></li>
+<li><font color="green">improve on documentation (route loading and
+  other <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1639308&amp;group_id=45607&amp;atid=443421">route
+  details</a>)</font></li>
+<li><font color="green">automatic doc building (pdf and html)</font></li>
+</ul>
+<h2 id="097_testing_is_fun"><font color="green">0.9.7 "Testing is fun"</font><a class="headerlink" href="#097_testing_is_fun" title="Permanent link">#</a></h2>
+<ul>
+<li>Make all tests work on all platforms (a permanent goal which was
+achieved partly)<ul>
+<li>ok: MSVC8</li>
+<li>errors: NETCONVERT, NETGENERATE, SUMO, with gcc</li>
+<li>still missing: SUMO-GUI</li>
+</ul>
+</li>
+<li><font color="green">Remove all memory leaks reported by nvwa</font><ul>
+<li><font color="green">ok: DUAROUTER, JTRROUTER, NETCONVERT,
+  NETGENERATE, OD2TRIPS, DFROUTER, SUMO, SUMO-GUI</font></li>
+</ul>
+</li>
+<li><font color="green"><a href="../Specification.html">specification concerning car and route
+properties</a> (acceleration, deceleration,
+route start / end)</font></li>
+<li><font color="green">use OutputDevice</font><ul>
+<li><font color="green">done: NETCONVERT, NETGENERATE, OD2TRIPS,
+  SUMO, SUMO-GUI, DUAROUTER, JTRROUTER, DFROUTER</font></li>
+<li><font color="green">I have kept configuration output using plain
+  ofstream</font></li>
+</ul>
+</li>
+<li><font color="green">check the status of the following files and dirs
+(in src)</font> (removed)<ul>
+<li><font color="green">giant_main.cpp</font> (removed)</li>
+<li><font color="green">netedit</font> (removed)</li>
+<li><font color="green">netedit_main.cpp</font> (removed)</li>
+<li><font color="green">tagreader.cpp</font> (removed)</li>
+<li><font color="green">tools dir</font> (removed)</li>
+</ul>
+</li>
+<li><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1648747&amp;group_id=45607&amp;atid=443424">PROJ and GDAL
+optional</a></li>
+<li><font color="green">consolidate interfaces</font><ul>
+<li><font color="green">sockets</font></li>
+</ul>
+</li>
+<li><font color="green">release-building patches</font><ul>
+<li><font color="green">move generated pdfs into &lt;SUMO&lowbar;DIST&gt;/docs</font></li>
+<li><font color="green">extra targets for docs &amp; tests?</font></li>
+<li><font color="green">links FAQ, Bibliography shall point to the
+  wiki</font></li>
+<li><font color="green">remove man pages from the documentation
+  section</font></li>
+<li><font color="green">remove additional data section</font></li>
+</ul>
+</li>
+</ul>
+<h2 id="010_clean">0.10 "Clean"<a class="headerlink" href="#010_clean" title="Permanent link">#</a></h2>
+<ul>
+<li><font color="green">better tests for detector output</font></li>
+<li><font color="green">refactor detectors</font></li>
+</ul>
+<h2 id="011_another_one_bites_the_dust">0.11 "Another One Bites the Dust"<a class="headerlink" href="#011_another_one_bites_the_dust" title="Permanent link">#</a></h2>
+<h2 id="012_scotty_is_dead">0.12 "Scotty is dead"<a class="headerlink" href="#012_scotty_is_dead" title="Permanent link">#</a></h2>
+<ul>
+<li>develop general statement about SUMO's future (what should be inside
+  and what is definitely out of scope)</li>
+<li>resolve issues related to physics
+  (<a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1639478&amp;group_id=45607&amp;atid=443421">1639478</a>,
+  <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1639479&amp;group_id=45607&amp;atid=443421">1639479</a>,
+  <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1645229&amp;group_id=45607&amp;atid=443421">1645229</a>,
+  <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1653274&amp;group_id=45607&amp;atid=443421">1653274</a>,
+  <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1673339&amp;group_id=45607&amp;atid=443421">1673339</a>)</li>
+<li>better collision and deadlock detection</li>
+<li>remove beaming / transporter</li>
+<li>no overlapping cars at edge borders (reported by Luebeck, no
+  testcase / bugreport yet)</li>
+<li>tests concerning car and route properties (acceleration,
+  deceleration, route start / end)</li>
+<li>evaluate/add some real-life examples</li>
+<li>implement <a href="../Specification.html">Specification</a></li>
+</ul>
+<ul>
+<li>describe exception handling (see <a href="../Developer/Implementation_Notes/Error_Handling.html">Developer/Implementation
+  Notes/Error
+  Handling</a>)</li>
+<li>document on coding conventions (see
+  <a href="../Developer/CodeStyle.html">Developer/CodeStyle</a>)</li>
+</ul>
+<ul>
+<li><font color="green">maybe introduce unit testing</font></li>
+<li>write specifications and tests concerning basic functionality (lane
+  changing, junction behavior)</li>
+<li>describe and evaluate the implemented car-following model</li>
+<li>consolidate (and publish(?)) inner-junction traffic</li>
+<li>rework (and publish(!)) lane-changing</li>
+<li>ns2connection</li>
+<li>refactoring<ul>
+<li>recheck and describe interaction between files and outputs used by SUMO</li>
+<li>remove static dictionaries, use one map implementation</li>
+<li>recheck "module" dependencies</li>
+<li>check the tools dir and translate needed ones to python</li>
+<li>use html instead of shtml in generated pages?</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>features<ul>
+<li>consolidate vehicle class ideas and usage</li>
+<li>add support for network database processing in NETCONVERT</li>
+<li>correct NETCONVERT's SUMO-network importer</li>
+</ul>
+</li>
+</ul>
+<h2 id="013_xml_consistency">0.13 "XML consistency"<a class="headerlink" href="#013_xml_consistency" title="Permanent link">#</a></h2>
+<ul>
+<li><font color="green">remove character data</font></li>
+<li><font color="green">introduce option tag with key, value
+  attributes</font></li>
+<li>develop an XML Schema and implement an
+  <a href="http://xmsf.sourceforge.net/xsbc.html">XSBC</a> parser</li>
+</ul>
+<h2 id="014_speed">0.14 "Speed"<a class="headerlink" href="#014_speed" title="Permanent link">#</a></h2>
+<ul>
+<li>Multithreaded simulation</li>
+<li>all calculations integer based instead of float (improves precision
+  / predictability)</li>
+</ul>
+<h2 id="10">1.0<a class="headerlink" href="#10" title="Permanent link">#</a></h2>
+<ul>
+<li>update the about dialog ;-)</li>
+</ul>
+<h2 id="after_being_retired">After being retired<a class="headerlink" href="#after_being_retired" title="Permanent link">#</a></h2>
+<ul>
+<li>As soon as we do not longer support routes defined in characters,
+  one should revisit whether "myActiveRouteID" is really needed</li>
+</ul>
+                        
+                        
+                        </div>
+            </div>
+            
+            <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+        </div>
+
+        <footer class="col-md-12">
+          
+        <br><small><i>This page was last edited on: 02 September 2019</i></small>
+    
+            <hr>
+                <p>Copyright &copy; 2001 - 2020 German Aerospace Center (DLR) and others.</p>
+            <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a>
+            | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Enter your search terms below.
+                </p>
+                    <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                    <div class="gcse-search"></div>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit on GiHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
