@@ -1,0 +1,56 @@
+# Kowdenahalli, Bengaluru: four signalised junctions on two parallel roads.
+# Road data: (c) OpenStreetMap contributors, ODbL 1.0 (see NOTICE.md).
+
+name: Kowdenahalli, Bengaluru
+osm: kowdenahalli.osm
+net: kowdenahalli.net.xml
+
+# netconvert options used by `junctioniq build-network` to regenerate the net file.
+netconvert:
+  - --lefthand=true                 # India drives on the left
+  - --tls.set=1570888196,1570901527,3544504238,3544504239
+  - --tls.default-type=static
+  - --tls.green.time=42
+  - --tls.yellow.time=3
+  - --no-turnarounds=true
+  - --output.street-names=true
+
+# Friendly names for the signalised junctions (OSM node IDs).
+junctions:
+  "3544504239": North-west
+  "3544504238": North-east
+  "1570888196": South-west
+  "1570901527": South-east
+
+# Where vehicles enter and leave the network.
+entries:
+  north_main: "143553082#0"       # the 1 km road from the north
+  north_side: "143551389#0"
+  east_upper: "348320661#0"
+  east_lower: "-143547931#2"
+  west: "143547931#0"
+exits:
+  north_main: "-143553082#0"
+  north_side: "-143551389#0"
+  east_upper: "-348320661#0"
+  east_lower: "143547931#2"
+  west: "-143547931#0"
+
+# Vehicle mix: cars, a large share of two-wheelers, and some trucks and buses.
+vehicle_mix:
+  car: 0.55
+  motorcycle: 0.35
+  truck: 0.10
+
+# Traffic demand in vehicles per hour per entry. Each period lasts `minutes`;
+# the morning peak runs into the network from the north, then the flow turns round.
+demand:
+  periods:
+    - minutes: 15
+      rates: {north_main: 480, north_side: 190, east_upper: 240, east_lower: 190, west: 290}
+    - minutes: 20
+      rates: {north_main: 860, north_side: 320, east_upper: 260, east_lower: 190, west: 320}
+    - minutes: 25
+      rates: {north_main: 420, north_side: 190, east_upper: 480, east_lower: 350, west: 510}
+  # Relative popularity of each exit; a vehicle never leaves where it came in.
+  exit_weights: {north_main: 1.4, north_side: 0.8, east_upper: 1.0, east_lower: 0.8, west: 1.2}
