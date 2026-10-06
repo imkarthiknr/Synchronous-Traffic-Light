@@ -1,0 +1,22 @@
+# Double DQN on the Kowdenahalli scenario: `junctioniq train --config configs/dqn.yaml`
+scenario: kowdenahalli
+episodes: 200
+seed: 0
+reward: queue            # queue | wait | speed
+delta: 5                 # seconds between decisions
+yellow_time: 3
+min_green: 10
+demand_scale: [0.6, 1.2] # each training day draws its demand level from this range
+validate_every: 5
+validation_seeds: [900, 901]
+dqn:
+  hidden: 256
+  lr: 0.0005
+  gamma: 0.99
+  batch_size: 64
+  buffer_size: 100000
+  learning_starts: 2000
+  target_update_tau: 0.005
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay_steps: 60000
