@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  UV_NO_SYNC: "1" # keep the CPU-only torch installed by scripts/install_cpu.sh
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install (CPU-only PyTorch)
+        run: scripts/install_cpu.sh
+      - name: Lint
+        if: matrix.python == '3.13'
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: Tests
+        run: uv run pytest
+      - name: The bundled network matches its OSM source
+        run: |
+          uv run junctioniq build-network
+          git diff --exit-code -- src/junctioniq/scenarios
+      - name: Evaluate the controllers on one light day
+        run: uv run junctioniq evaluate --policies fixed:20 actuated max-pressure --seeds 1 --scale 0.6
+
+  vision:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+      - name: Install (CPU-only PyTorch)
+        run: scripts/install_cpu.sh
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/junctioniq/models
+          key: yolox-s-c5c2d13e
+      - name: Detector on the demo clip
+        run: uv run pytest -m model
+      - name: Command line
+        run: uv run junctioniq detect data/bangalore-traffic-15s.mp4 --max-frames 15 --no-video --out outputs/ci
